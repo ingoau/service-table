@@ -6,6 +6,7 @@ import { AIButton } from "./ai-button";
 import SearchBox from "./searchbox";
 import { useTheme } from "next-themes";
 import Button from "@mui/material/Button";
+import { Button as AntdButton } from "antd";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
@@ -25,20 +26,20 @@ export default function Navbar() {
         <div className="grow"></div>
         <SearchBox />
         <div className="grow"></div>
-        <button
+        <AntdButton
           onClick={() => {
             setDocumentationMenuOpen(true);
           }}
         >
           Documentation
-        </button>
-        <button
+        </AntdButton>
+        <AntdButton
           onClick={() => {
             setResourcesMenuOpen(true);
           }}
         >
           Resources
-        </button>
+        </AntdButton>
         <div className="grow"></div>
         <button onClick={() => (location.href = "/createticket")}>
           Create Ticket
