@@ -2,10 +2,18 @@
 
 import { cn } from "@/lib/utils";
 import { AIButton } from "./ai-button";
-import { useRef } from "react";
+import { animate } from "animejs";
+import { useEffect, useRef } from "react";
 
 export default function SearchBox({ className }: { className?: string }) {
   const formRef = useRef<HTMLFormElement>(null);
+  useEffect(() => {
+    animate(formRef.current as HTMLFormElement, {
+      scale: [0, 1],
+      duration: 500,
+      easing: "easeInOutQuad",
+    });
+  });
 
   return (
     <form className={cn("flex", className)} action="/ai" ref={formRef}>
