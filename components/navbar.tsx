@@ -2,7 +2,7 @@
 
 export default function Navbar() {
   return (
-    <div className="w-screen flex flex-row bg-blue-300 items-center [&>button]:p-2 [&>button]:bg-blue-300">
+    <div className="w-screen flex flex-row bg-blue-300 items-center">
       {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
       <a href="/">
         <h2 className="text-blue-500">
