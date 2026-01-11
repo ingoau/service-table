@@ -26,10 +26,12 @@ export default function Page() {
           </div>
         );
       })}
-      {JSON.stringify(chat.messages)}
+      {chat.messages.map((message) => (
+        <div key={message.id}>{JSON.stringify(message)}</div>
+      ))}
       <button
         onClick={() => {
-          chat.sendMessage({ text: "e" });
+          chat.sendMessage({ text: "The printer isnt working" });
         }}
       ></button>
     </div>
