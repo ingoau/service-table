@@ -33,7 +33,7 @@ export function AIButton({
   const isExpanded = variant === "expanded";
 
   return (
-    <div className={`relative inline-flex ${className}`}>
+    <div className={`inline-flex z-50 relative ${className}`}>
       {/* Outer glow effect */}
       <motion.div
         className="absolute inset-0 rounded-full blur-xl opacity-0"
