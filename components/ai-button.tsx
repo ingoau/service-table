@@ -21,7 +21,9 @@ export interface AIButtonProps {
 export function AIButton({
   variant = "expanded",
   text = "Ask AI",
-  onClick,
+  onClick = () => {
+    location.href = "/ai";
+  },
   className = "",
   disabled = false,
 }: AIButtonProps) {
