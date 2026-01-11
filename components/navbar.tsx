@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-screen flex flex-row bg-blue-300 items-center gap-1 flex-wrap">
+      <div className="w-screen flex flex-row bg-blue-300 items-center gap-1 flex-wrap sticky top-0 -z-10">
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/">
           <h2 className="text-blue-500">
