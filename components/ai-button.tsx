@@ -1,5 +1,12 @@
 "use client";
 
+///////////////
+// Note
+// This is the only vibe coded part of the project,
+// and this is a bit of a joke about companies putting
+// AI into everything
+///////////////
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
