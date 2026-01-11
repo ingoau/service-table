@@ -1,5 +1,7 @@
 "use client";
 
+import { AIButton } from "@/components/ai-button";
+
 export default function LogoutPage() {
   return (
     <div className="mx-auto w-fit border border-red-500! p-4 m-4">
@@ -15,6 +17,7 @@ export default function LogoutPage() {
       >
         Log In First
       </button>
+      <AIButton text="Troubleshoot with ai" />
     </div>
   );
 }
