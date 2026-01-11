@@ -19,7 +19,10 @@ Everything after here is a joke
 ### Not using next/link
 Next/link is not used as <a> is native to the browser and therefore faster /j
 ### Only required dependecies sent to client
+* React
 * TailwindCSS
 * Emotion
 * MUI
 * Ant Design
+* GSAP
+* Framer motion
