@@ -77,8 +77,11 @@ export default function Navbar() {
               ease: "linear",
             }}
           >
-            <h1>Resources Menu</h1>
-            <div className="flex flex-col">
+            <div className="flex flex-row gap-2">
+              {" "}
+              <h1>Resources Menu</h1> <AIButton />
+            </div>
+            <div className="flex flex-col gap-2 py-4">
               <a href="https://downloadmoreram.com/">
                 Download RAM because its too expensive
               </a>
