@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { AIButton } from "./ai-button";
+import SearchBox from "./searchbox";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
@@ -18,6 +19,8 @@ export default function Navbar() {
           </h2>
         </a>
         <AIButton variant="expanded" text="Now with AI" />
+        <div className="grow"></div>
+        <SearchBox />
         <div className="grow"></div>
         <button
           onClick={() => {
