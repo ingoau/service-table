@@ -75,6 +75,12 @@ export default function Navbar() {
             }}
           >
             <h1>Resources Menu</h1>
+            <div className="flex flex-col">
+              <a href="https://downloadmoreram.com/">
+                Download RAM because its too expensive
+              </a>
+              <a href="https://www.opera.com/gx">Download virus</a>
+            </div>
             <button
               onClick={() => {
                 setResourcesMenuOpen(false);
