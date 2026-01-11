@@ -21,7 +21,7 @@ export default function Home() {
         <Megaphone />
         Announcements
       </h1>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 relative z-10">
         <div className="w-screen p-4 bg-blue-100 rounded-full">
           <h1>
             <Bot /> Transitioning to AI based support
@@ -65,7 +65,7 @@ export default function Home() {
       <h1>About</h1>
       <h2>Support for Failsforce Service Table</h2>
 
-      <div className="w-screen p-4 bg-blue-100 rounded-full">
+      <div className="w-screen p-4 bg-blue-100 rounded-full relative z-10">
         <p>
           Welcome to the Failsforce Service Table support site—your central
           place for help, guidance, and practical answers for using the platform
