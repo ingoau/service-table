@@ -52,9 +52,7 @@ export default function Navbar() {
           variant="contained"
           suppressHydrationWarning
         >
-          <button suppressHydrationWarning>
-            {theme === "light" ? "Light mode" : "Dark mode"}
-          </button>
+          {theme === "light" ? "Light mode" : "Dark mode"}
         </Button>
         <AIButton variant="circle" />
       </div>
