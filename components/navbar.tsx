@@ -100,6 +100,7 @@ export default function Navbar() {
                 Download RAM because its too expensive
               </a>
               <a href="https://www.opera.com/gx">Download virus</a>
+              <a href="/ai">AI</a>
             </div>
             <button
               onClick={() => {
