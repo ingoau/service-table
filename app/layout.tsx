@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import TitleSetter from "@/components/title-setter";
 import { AIButton } from "@/components/ai-button";
 import { ThemeProvider } from "next-themes";
+import { Fab } from "@mui/material";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
+          <Fab
+            variant="extended"
+            className="fixed! bottom-3 left-2"
+            href="/createticket"
+          >
+            Submit ticket <AIButton text="with ai" />
+          </Fab>
           <AIButton className="fixed! bottom-0 right-0" />
           {children}
           <TitleSetter />
