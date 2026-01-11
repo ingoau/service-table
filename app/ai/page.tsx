@@ -36,8 +36,10 @@ export default function Page() {
                   <div className="p-1 border w-fit rounded-full" key={index}>
                     {part.state === "output-available"
                       ? "Asked gork"
-                      : "Asking gork"}{" "}
+                      : "Asking gork"}
+                    {' "'}
                     {(part.input as { prompt: string })?.prompt || ""}
+                    {'"'}
                   </div>
                 );
             })}
