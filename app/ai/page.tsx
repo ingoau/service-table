@@ -77,6 +77,7 @@ export default function Page() {
           className="w-full"
           onClick={() => {
             chat.sendMessage({ text: enteredText });
+            setEnteredText("Enter message here...");
           }}
         >
           Send
