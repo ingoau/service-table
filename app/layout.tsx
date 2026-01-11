@@ -6,6 +6,7 @@ import TitleSetter from "@/components/title-setter";
 import { AIButton } from "@/components/ai-button";
 import { ThemeProvider } from "next-themes";
 import { Fab } from "@mui/material";
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,7 @@ export default function RootLayout({
           <AIButton className="fixed! bottom-0 right-0" />
           {children}
           <TitleSetter />
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
