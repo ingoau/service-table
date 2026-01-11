@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { AIButton } from "./ai-button";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
@@ -16,6 +17,7 @@ export default function Navbar() {
             Failsforce Service Desk (click to go home)
           </h2>
         </a>
+        <AIButton variant="expanded" text="Now with AI" />
         <div className="grow"></div>
         <button
           onClick={() => {
@@ -38,6 +40,7 @@ export default function Navbar() {
         <button onClick={() => (location.href = "/signup")}>Sign up</button>
         <button onClick={() => (location.href = "/login")}>Log in</button>
         <button onClick={() => (location.href = "/logout")}>Sign out</button>
+        <AIButton variant="circle" />
       </div>
       <AnimatePresence>
         {documentationMenuOpen && (
