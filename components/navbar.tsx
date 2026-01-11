@@ -10,8 +10,13 @@ export default function Navbar() {
         </h2>
       </a>
       <div className="grow"></div>
+      <div className="grow"></div>
+      <button onClick={() => (location.href = "/createticket")}>
+        Create Ticket
+      </button>
       <button onClick={() => (location.href = "/signup")}>Sign up</button>
       <button onClick={() => (location.href = "/login")}>Log in</button>
+      <button onClick={() => (location.href = "/logout")}>Sign out</button>
     </div>
   );
 }
