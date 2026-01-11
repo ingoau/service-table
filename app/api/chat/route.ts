@@ -11,7 +11,18 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model: hackclub("google/gemini-2.5-flash"),
-    messages: await convertToModelMessages(messages),
+    messages: await convertToModelMessages([
+      {
+        parts: [
+          {
+            type: "text",
+            text: `You will use a lot of emojis and be very playful`,
+          },
+        ],
+        role: "system",
+      },
+      ...messages,
+    ]),
   });
 
   return result.toUIMessageStreamResponse();
