@@ -2,17 +2,27 @@
 
 import { AIButton } from "@/components/ai-button";
 import SearchBox from "@/components/searchbox";
+import styled from "@emotion/styled";
 import { Bot, Megaphone, Moon } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function Home() {
+  const HeroDiv = styled("div")`
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #9ac4feee;
+  `;
   return (
     <motion.div
       initial={{ y: 1000, scale: 0.5 }}
       animate={{ y: 0, scale: 1 }}
       transition={{ duration: 2, ease: "linear" }}
     >
-      <div className="w-full flex flex-col gap-4 items-center relative z-10 bg-blue-200 p-32">
+      <HeroDiv>
         <h1>Welcome to Service Table</h1>
         <h1>How can we help you</h1>
         <SearchBox />
@@ -21,7 +31,7 @@ export default function Home() {
         <div>
           <AIButton />
         </div>
-      </div>
+      </HeroDiv>
       <h1>
         <Megaphone />
         Announcements
