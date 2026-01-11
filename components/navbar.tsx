@@ -10,6 +10,7 @@ import { Button as AntdButton } from "antd";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Button as ShadcnButton } from "./ui/button";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
@@ -55,9 +56,12 @@ export default function Navbar() {
           Resources
         </AntdButton>
         <div className="grow"></div>
-        <button onClick={() => (location.href = "/createticket")}>
+        <ShadcnButton
+          variant="outline"
+          onClick={() => (location.href = "/createticket")}
+        >
           Create Ticket
-        </button>
+        </ShadcnButton>
         <button onClick={() => (location.href = "/signup")}>Sign up</button>
         <button onClick={() => (location.href = "/login")}>Log in</button>
         <button onClick={() => (location.href = "/logout")}>Sign out</button>
