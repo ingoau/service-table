@@ -9,7 +9,7 @@ export default function Page() {
   const chat = useChat({
     sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
   });
-  const [enteredText, setEnteredText] = useState("");
+  const [enteredText, setEnteredText] = useState("Enter message here...");
 
   return (
     <div className="p-4 flex flex-col gap-2">
@@ -58,18 +58,22 @@ export default function Page() {
           </div>
         );
       })}
-      <input
-        type="text"
-        value={enteredText}
-        onChange={(e) => setEnteredText(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          chat.sendMessage({ text: enteredText });
-        }}
-      >
-        Send
-      </button>
+      <div className="flex flex-row w-screen">
+        <input
+          type="text"
+          value={enteredText}
+          onChange={(e) => setEnteredText(e.target.value)}
+          className="w-full p-4"
+        />
+        <button
+          className="w-full"
+          onClick={() => {
+            chat.sendMessage({ text: enteredText });
+          }}
+        >
+          Send
+        </button>
+      </div>
     </div>
   );
 }
