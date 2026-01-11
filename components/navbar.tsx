@@ -57,7 +57,7 @@ export default function Navbar() {
         {documentationMenuOpen && (
           <motion.div
             key="docs"
-            className="bg-blue-400 fixed top-10 left-[50%] z-10 p-4 flex flex-col"
+            className="bg-blue-400 fixed top-10 left-[50%] p-4 flex flex-col z-20"
             initial={{ y: -150 }}
             animate={{ y: 0 }}
             exit={{ y: -150 }}
@@ -93,7 +93,7 @@ export default function Navbar() {
         {resourcesMenuOpen && (
           <motion.div
             key="resources"
-            className="bg-blue-400 fixed top-10 left-[50%] z-10 p-4"
+            className="bg-blue-400 fixed top-10 left-[50%] p-4 z-20"
             initial={{ y: -150 }}
             animate={{ y: 0 }}
             exit={{ y: -150 }}
