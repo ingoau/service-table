@@ -15,19 +15,32 @@ export default function Page() {
       <h1>AI</h1>
       {chat.messages.map((message) => {
         return (
-          <div
-            key={message.id}
-            className={cn(
-              "p-4 w-fit rounded-full",
-              message.role === "assistant"
-                ? "bg-blue-200 max-w-4xl"
-                : "bg-gray-200 ml-auto",
-            )}
-          >
-            {message.parts.map(
-              (part) =>
-                part.type == "text" && <div key={part.text}>{part.text}</div>,
-            )}
+          <div key={message.id} className="flex flex-col gap-2">
+            {message.parts.map((part, index) => {
+              if (part.type == "text")
+                return (
+                  <div
+                    key={index}
+                    className={cn(
+                      "p-4 w-fit rounded-full",
+                      message.role === "assistant"
+                        ? "bg-blue-200 max-w-4xl"
+                        : "bg-gray-200 ml-auto",
+                    )}
+                  >
+                    {part.text}
+                  </div>
+                );
+              if (part.type == "tool-delegateToGork")
+                return (
+                  <div className="p-1 border w-fit rounded-full" key={index}>
+                    {part.state === "output-available"
+                      ? "Asked gork"
+                      : "Asking gork"}{" "}
+                    {(part.input as { prompt: string })?.prompt || ""}
+                  </div>
+                );
+            })}
           </div>
         );
       })}
