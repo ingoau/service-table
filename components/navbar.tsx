@@ -46,7 +46,7 @@ export default function Navbar() {
         {documentationMenuOpen && (
           <motion.div
             key="docs"
-            className="bg-blue-400 fixed top-10 left-[50%] z-10 p-4"
+            className="bg-blue-400 fixed top-10 left-[50%] z-10 p-4 flex flex-col"
             initial={{ y: -150 }}
             animate={{ y: 0 }}
             exit={{ y: -150 }}
@@ -55,7 +55,21 @@ export default function Navbar() {
               ease: "linear",
             }}
           >
-            <h1>Documentation Menu</h1>
+            <h1>Documentation</h1>
+            As of 2025, we’ve swapped traditional docs for an AI chat
+            experience—because getting help shouldn’t feel like a treasure hunt
+            through endless pages 🗺️📚. Instead of guessing the right search
+            term, you can just ask what you need in plain language and get a
+            clear, step-by-step answer tailored to your situation 🧠💬. Need the
+            quick version? You’ll get it ⚡. Want the deeper dive with examples
+            and edge cases? The chat can go there too 🔎🧩. It can also point
+            you to the underlying references when you want to double-check
+            details or share something with your team 🔗✅. The best part: every
+            question helps us improve—common “wait, what?” moments show up
+            immediately, so we can fix gaps, update guidance, and make the whole
+            experience smoother over time 🛠️📈. Bottom line: less searching,
+            more doing 🚀😄.
+            <AIButton />
             <button
               onClick={() => {
                 setDocumentationMenuOpen(false);
