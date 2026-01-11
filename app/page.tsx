@@ -3,10 +3,15 @@
 import { AIButton } from "@/components/ai-button";
 import SearchBox from "@/components/searchbox";
 import { Bot, Megaphone, Moon } from "lucide-react";
+import { motion } from "motion/react";
 
 export default function Home() {
   return (
-    <>
+    <motion.div
+      initial={{ y: 1000, scale: 0.5 }}
+      animate={{ y: 0, scale: 1 }}
+      transition={{ duration: 2, ease: "linear" }}
+    >
       <div className="w-full flex flex-col gap-4 items-center relative z-10 bg-blue-300/25">
         <h1>Welcome to Service Table</h1>
         <h1>How can we help you</h1>
@@ -166,6 +171,6 @@ export default function Home() {
           can help you get to a reliable solution.
         </p>
       </div>
-    </>
+    </motion.div>
   );
 }
