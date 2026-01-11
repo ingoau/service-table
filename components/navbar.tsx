@@ -5,6 +5,7 @@ import { useState } from "react";
 import { AIButton } from "./ai-button";
 import SearchBox from "./searchbox";
 import { useTheme } from "next-themes";
+import Button from "@mui/material/Button";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
@@ -45,12 +46,15 @@ export default function Navbar() {
         <button onClick={() => (location.href = "/signup")}>Sign up</button>
         <button onClick={() => (location.href = "/login")}>Log in</button>
         <button onClick={() => (location.href = "/logout")}>Sign out</button>
-        <button
+        <Button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          variant="contained"
           suppressHydrationWarning
         >
-          {theme === "light" ? "Light mode" : "Dark mode"}
-        </button>
+          <button suppressHydrationWarning>
+            {theme === "light" ? "Light mode" : "Dark mode"}
+          </button>
+        </Button>
         <AIButton variant="circle" />
       </div>
       <AnimatePresence>
