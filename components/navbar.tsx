@@ -47,9 +47,9 @@ export default function Navbar() {
           <motion.div
             key="docs"
             className="bg-blue-400 fixed top-10 left-[50%] z-10 p-4"
-            initial={{ y: -100 }}
+            initial={{ y: -150 }}
             animate={{ y: 0 }}
-            exit={{ y: -100 }}
+            exit={{ y: -150 }}
             transition={{
               duration: 1,
               ease: "linear",
@@ -69,9 +69,9 @@ export default function Navbar() {
           <motion.div
             key="resources"
             className="bg-blue-400 fixed top-10 left-[50%] z-10 p-4"
-            initial={{ y: -100 }}
+            initial={{ y: -150 }}
             animate={{ y: 0 }}
-            exit={{ y: -100 }}
+            exit={{ y: -150 }}
             transition={{
               duration: 1,
               ease: "linear",
