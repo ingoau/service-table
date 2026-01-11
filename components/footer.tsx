@@ -1,7 +1,6 @@
 "use client";
 
 import { Editor } from "@tinymce/tinymce-react";
-import { Button } from "antd/es/radio";
 import { useState } from "react";
 import Error from "./error";
 
@@ -37,13 +36,13 @@ export default function Footer() {
                 bullist numlist outdent indent | removeformat | help",
               }}
             />
-            <Button
+            <button
               onClick={() => {
                 setSubmitted(true);
               }}
             >
               Submit
-            </Button>
+            </button>
           </div>
         )}
         <div className="flex justify-between items-center">
