@@ -27,18 +27,14 @@ export default function Home() {
             <Bot /> Transitioning to AI based support
             <Bot />
           </h1>
-          As of 2025, we’ve swapped traditional docs for an AI chat
-          experience—because getting help shouldn’t feel like a treasure hunt
-          through endless pages 🗺️📚. Instead of guessing the right search term,
-          you can just ask what you need in plain language and get a clear,
-          step-by-step answer tailored to your situation 🧠💬. Need the quick
-          version? You’ll get it ⚡. Want the deeper dive with examples and edge
-          cases? The chat can go there too 🔎🧩. It can also point you to the
-          underlying references when you want to double-check details or share
-          something with your team 🔗✅. The best part: every question helps us
-          improve—common “wait, what?” moments show up immediately, so we can
-          fix gaps, update guidance, and make the whole experience smoother over
-          time 🛠️📈. Bottom line: less searching, more doing 🚀😄.
+          We’re moving to an AI-first approach for documentation and support.
+          🤖✨ That means you’ll see smarter, faster help options built right
+          into our docs—so you can get answers, troubleshooting steps, and
+          guidance in seconds. 📚⚡ Our support experience will also shift
+          toward AI-powered assistance as the first stop, with a clear path to a
+          human when needed. 🙋♂️✅ The goal is simple: quicker resolutions,
+          more consistent answers, and better self-serve support—without losing
+          access to the team when it matters.
         </div>
         <div className="w-screen p-4 bg-blue-100 rounded-full">
           <h1>🔒 New security protocols</h1>
