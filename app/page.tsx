@@ -12,7 +12,7 @@ export default function Home() {
       animate={{ y: 0, scale: 1 }}
       transition={{ duration: 2, ease: "linear" }}
     >
-      <div className="w-full flex flex-col gap-4 items-center relative z-10 bg-blue-300/25">
+      <div className="w-full flex flex-col gap-4 items-center relative z-10 bg-blue-300/25 p-32">
         <h1>Welcome to Service Table</h1>
         <h1>How can we help you</h1>
         <SearchBox />
