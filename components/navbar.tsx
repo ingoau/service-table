@@ -4,10 +4,12 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { AIButton } from "./ai-button";
 import SearchBox from "./searchbox";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
+  const { setTheme, theme } = useTheme();
 
   return (
     <>
@@ -43,6 +45,12 @@ export default function Navbar() {
         <button onClick={() => (location.href = "/signup")}>Sign up</button>
         <button onClick={() => (location.href = "/login")}>Log in</button>
         <button onClick={() => (location.href = "/logout")}>Sign out</button>
+        <button
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          suppressHydrationWarning
+        >
+          {theme === "light" ? "Light mode" : "Dark mode"}
+        </button>
         <AIButton variant="circle" />
       </div>
       <AnimatePresence>
