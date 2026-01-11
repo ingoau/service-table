@@ -14,7 +14,7 @@ export default function Navbar() {
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/">
           <h2 className="text-blue-500">
-            Failsforce Service Desk (click to go home)
+            Failsforce Service Table (click to go home)
           </h2>
         </a>
         <AIButton variant="expanded" text="Now with AI" />
