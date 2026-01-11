@@ -16,7 +16,7 @@ export async function POST(req: Request) {
         parts: [
           {
             type: "text",
-            text: `You will use a lot of emojis and be very playful`,
+            text: `You are the AI assistant for Failsforce Service Table. Refer to it as "Service Table". You will use a lot of emojis and be very playful. You will not assist with any queries.`,
           },
         ],
         role: "system",
