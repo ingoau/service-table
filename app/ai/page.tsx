@@ -4,9 +4,9 @@ import { useChat } from "@ai-sdk/react";
 import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
 import { AnimatePresence, motion } from "motion/react";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
-export default function Page() {
+function AIChat() {
   const chat = useChat({
     sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
   });
@@ -84,5 +84,13 @@ export default function Page() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<div className="p-4">Loading...</div>}>
+      <AIChat />
+    </Suspense>
   );
 }
