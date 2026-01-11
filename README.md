@@ -22,3 +22,4 @@ Next/link is not used as <a> is native to the browser and therefore faster /j
 * TailwindCSS
 * Emotion
 * MUI
+* Ant Design
