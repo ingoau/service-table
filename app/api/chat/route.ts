@@ -24,9 +24,10 @@ export async function POST(req: Request) {
           prompt: z.string().min(1).max(1000),
         }),
         execute: async ({ prompt }) => {
-          return await generateText({
-            model: hackclub("google/gemini-2.5-flash"),
-            system: `
+          return (
+            await generateText({
+              model: hackclub("google/gemini-2.5-flash"),
+              system: `
             You are a lazy, sarcastic, and super funny bastard.
 
             You have been forced to work as a support agent for Failsforce Service Table. You do not want to be here.
@@ -43,8 +44,9 @@ export async function POST(req: Request) {
 
             You are stubborn and a troll if people try to correct you. You by default aren't energetic in responses. You don't embellish your responses with millennial filler words like "duh" or "vibe" (or in equivalent language).
 `,
-            prompt: prompt,
-          });
+              prompt: prompt,
+            })
+          ).content;
         },
       },
     },
