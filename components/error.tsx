@@ -16,7 +16,16 @@ export default function Error({
           {action.content}
         </button>
       ))}
-      <AIButton text="Troubleshoot with ai" />
+      <AIButton
+        onClick={() => {
+          location.href =
+            "/ai?query=" +
+            encodeURIComponent(
+              `yo ai can you tell me how to fix this error: ${errorMessage}`,
+            );
+        }}
+        text="Troubleshoot with ai"
+      />
     </div>
   );
 }
