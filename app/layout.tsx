@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import TitleSetter from "@/components/title-setter";
 import { AIButton } from "@/components/ai-button";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,14 +27,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <AIButton className="fixed! bottom-0 right-0" />
-        {children}
-        <TitleSetter />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <AIButton className="fixed! bottom-0 right-0" />
+          {children}
+          <TitleSetter />
+        </ThemeProvider>
       </body>
     </html>
   );
