@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
+  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
 
   return (
     <>
@@ -18,14 +19,14 @@ export default function Navbar() {
         <div className="grow"></div>
         <button
           onClick={() => {
-            setMenuOpen(true);
+            setDocumentationMenuOpen(true);
           }}
         >
           Documentation
         </button>
         <button
           onClick={() => {
-            setMenuOpen(true);
+            setResourcesMenuOpen(true);
           }}
         >
           Resources
@@ -39,21 +40,44 @@ export default function Navbar() {
         <button onClick={() => (location.href = "/logout")}>Sign out</button>
       </div>
       <AnimatePresence>
-        {menuOpen && (
+        {documentationMenuOpen && (
           <motion.div
+            key="docs"
             className="bg-blue-300 fixed top-0 left-[50%] z-10 p-4"
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             exit={{ y: -100 }}
             transition={{
-              duration: 2,
+              duration: 1,
               ease: "linear",
             }}
           >
-            <h1>Menu</h1>
+            <h1>Documentation Menu</h1>
             <button
               onClick={() => {
-                setMenuOpen(false);
+                setDocumentationMenuOpen(false);
+              }}
+            >
+              Close Menu
+            </button>
+          </motion.div>
+        )}
+        {resourcesMenuOpen && (
+          <motion.div
+            key="resources"
+            className="bg-blue-300 fixed top-0 left-[50%] z-10 p-4"
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            exit={{ y: -100 }}
+            transition={{
+              duration: 1,
+              ease: "linear",
+            }}
+          >
+            <h1>Resources Menu</h1>
+            <button
+              onClick={() => {
+                setResourcesMenuOpen(false);
               }}
             >
               Close Menu
