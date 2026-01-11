@@ -24,8 +24,8 @@ export default function Page() {
                     className={cn(
                       "p-4 w-fit rounded-full",
                       message.role === "assistant"
-                        ? "bg-blue-200 max-w-4xl"
-                        : "bg-gray-200 ml-auto",
+                        ? "bg-blue-200 max-w-4xl rounded-bl-none"
+                        : "bg-gray-200 ml-auto rounded-br-none",
                     )}
                   >
                     {part.text}
