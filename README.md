@@ -26,3 +26,6 @@ Next/link is not used as <a> is native to the browser and therefore faster /j
 * Ant Design
 * GSAP
 * Framer motion
+
+### Password are stored plaintext
+Storing passwords plaintext improves performance as it eliminates the need for encryption and decryption processes. It also makes password recovery easier and faster.
