@@ -1,9 +1,11 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useChat } from "@ai-sdk/react";
+import { useState } from "react";
 
 export default function Page() {
   const chat = useChat();
+  const [enteredText, setEnteredText] = useState("");
 
   return (
     <div className="p-4 flex flex-col gap-2">
@@ -29,11 +31,18 @@ export default function Page() {
       {chat.messages.map((message) => (
         <div key={message.id}>{JSON.stringify(message)}</div>
       ))}
+      <input
+        type="text"
+        value={enteredText}
+        onChange={(e) => setEnteredText(e.target.value)}
+      />
       <button
         onClick={() => {
-          chat.sendMessage({ text: "The printer isnt working" });
+          chat.sendMessage({ text: enteredText });
         }}
-      ></button>
+      >
+        Send
+      </button>
     </div>
   );
 }
