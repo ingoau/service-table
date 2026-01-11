@@ -2,6 +2,7 @@
 
 import { AIButton } from "@/components/ai-button";
 import SearchBox from "@/components/searchbox";
+import { Bot, Megaphone, Moon } from "lucide-react";
 
 export default function Home() {
   return (
@@ -16,6 +17,52 @@ export default function Home() {
           <AIButton />
         </div>
       </div>
+      <h1>
+        <Megaphone />
+        Announcements
+      </h1>
+      <div className="flex flex-col gap-2">
+        <div className="w-screen p-4 bg-blue-100 rounded-full">
+          <h1>
+            <Bot /> Transitioning to AI based support
+            <Bot />
+          </h1>
+          As of 2025, we’ve swapped traditional docs for an AI chat
+          experience—because getting help shouldn’t feel like a treasure hunt
+          through endless pages 🗺️📚. Instead of guessing the right search term,
+          you can just ask what you need in plain language and get a clear,
+          step-by-step answer tailored to your situation 🧠💬. Need the quick
+          version? You’ll get it ⚡. Want the deeper dive with examples and edge
+          cases? The chat can go there too 🔎🧩. It can also point you to the
+          underlying references when you want to double-check details or share
+          something with your team 🔗✅. The best part: every question helps us
+          improve—common “wait, what?” moments show up immediately, so we can
+          fix gaps, update guidance, and make the whole experience smoother over
+          time 🛠️📈. Bottom line: less searching, more doing 🚀😄.
+        </div>
+        <div className="w-screen p-4 bg-blue-100 rounded-full">
+          <h1>🔒 New security protocols</h1>
+          Security upgrade incoming! 🔐✨ We’ve tightened our password
+          requirements, so the next time you sign in or change your password,
+          you’ll need to meet the new (stronger) rules. 💪 We’ve also made
+          passwords unique per user—meaning you can’t use the same password as
+          another user in the system. 🚫🔁 Accounts that don’t meet these
+          requirements will be banned. ⛔ If you need help updating your
+          password, please contact Support. 🆘
+        </div>
+        <div className="w-screen p-4 bg-blue-100 rounded-full">
+          <h1>
+            <Moon />
+            Dark mode is here
+          </h1>
+          Good news: Dark Mode has arrived! 🌙✨ You can now switch to a sleek,
+          low-glare theme that’s easier on the eyes—especially at night 🖤👀. To
+          turn it on, head to Settings and toggle Dark Mode (and if your device
+          supports it, you may be able to match your system theme too) ⚙️. Try
+          it out and tell us what you think! 🚀
+        </div>
+      </div>
+      <h1>About</h1>
       <h2>Support for Failsforce Service Table</h2>
 
       <p>
