@@ -16,8 +16,20 @@ export default function Navbar() {
           </h2>
         </a>
         <div className="grow"></div>
-        <button>Documentation</button>
-        <button>Resources</button>
+        <button
+          onClick={() => {
+            setMenuOpen(true);
+          }}
+        >
+          Documentation
+        </button>
+        <button
+          onClick={() => {
+            setMenuOpen(true);
+          }}
+        >
+          Resources
+        </button>
         <div className="grow"></div>
         <button onClick={() => (location.href = "/createticket")}>
           Create Ticket
@@ -27,9 +39,27 @@ export default function Navbar() {
         <button onClick={() => (location.href = "/logout")}>Sign out</button>
       </div>
       <AnimatePresence>
-        <motion.div className="bg-blue-300 fixed top-0 left-[50%] z-10 p-4">
-          <h1>Menu</h1>
-        </motion.div>
+        {menuOpen && (
+          <motion.div
+            className="bg-blue-300 fixed top-0 left-[50%] z-10 p-4"
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            exit={{ y: -100 }}
+            transition={{
+              duration: 2,
+              ease: "linear",
+            }}
+          >
+            <h1>Menu</h1>
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+              }}
+            >
+              Close Menu
+            </button>
+          </motion.div>
+        )}
       </AnimatePresence>
     </>
   );
