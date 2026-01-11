@@ -7,7 +7,7 @@ import { Bot, Megaphone, Moon } from "lucide-react";
 export default function Home() {
   return (
     <>
-      <div className="w-full flex flex-col gap-4 items-center relative z-10">
+      <div className="w-full flex flex-col gap-4 items-center relative z-10 bg-black/25">
         <h1>Welcome to Service Table</h1>
         <h1>How can we help you</h1>
         <SearchBox />
