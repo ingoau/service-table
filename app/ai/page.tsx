@@ -3,13 +3,21 @@ import { cn } from "@/lib/utils";
 import { useChat } from "@ai-sdk/react";
 import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Page() {
   const chat = useChat({
     sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
   });
   const [enteredText, setEnteredText] = useState("Enter message here...");
+  const queryParams = useSearchParams();
+
+  useEffect(() => {
+    if (queryParams.get("query")) {
+      chat.sendMessage({ text: queryParams.get("query")! });
+    }
+  }, [queryParams]);
 
   return (
     <div className="p-4 flex flex-col gap-2">
