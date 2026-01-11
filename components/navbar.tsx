@@ -7,15 +7,29 @@ import SearchBox from "./searchbox";
 import { useTheme } from "next-themes";
 import Button from "@mui/material/Button";
 import { Button as AntdButton } from "antd";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const { setTheme, theme } = useTheme();
 
+  gsap.registerPlugin(useGSAP); // register the hook to avoid React version discrepancies
+
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    gsap.from(container.current, { y: -360 });
+  });
+
   return (
     <>
-      <div className="w-screen flex flex-row bg-blue-300 items-center gap-1 flex-wrap sticky top-0">
+      <div
+        className="w-screen flex flex-row bg-blue-300 items-center gap-1 flex-wrap sticky top-0"
+        ref={container}
+      >
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/">
           <h2 className="text-blue-500">
