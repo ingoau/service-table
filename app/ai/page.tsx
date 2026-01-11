@@ -1,10 +1,13 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useChat } from "@ai-sdk/react";
+import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
 import { useState } from "react";
 
 export default function Page() {
-  const chat = useChat();
+  const chat = useChat({
+    sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
+  });
   const [enteredText, setEnteredText] = useState("");
 
   return (
