@@ -6,7 +6,7 @@ export default function LogoutPage() {
       <h1 className="text-red-500">Error</h1>
       <p>
         you are not logged in so you cant log out, why are you pressing the log
-        out button
+        out button? do you want to log in? idk anymore lol
       </p>
       <button
         onClick={() => {
