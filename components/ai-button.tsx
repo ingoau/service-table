@@ -1,6 +1,12 @@
 import { cn } from "@/lib/utils";
 
-export default function AiButton({ className }: { className?: string }) {
+export default function AiButton({
+  className,
+  extended,
+}: {
+  className?: string;
+  extended?: boolean;
+}) {
   return (
     <button
       className={cn(className, "")}
