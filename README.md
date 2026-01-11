@@ -20,3 +20,4 @@ Everything after here is a joke
 Next/link is not used as <a> is native to the browser and therefore faster /j
 ### Only required dependecies sent to client
 * TailwindCSS
+* Emotion
