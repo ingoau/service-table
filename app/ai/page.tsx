@@ -58,9 +58,6 @@ export default function Page() {
           </div>
         );
       })}
-      {chat.messages.map((message) => (
-        <div key={message.id}>{JSON.stringify(message)}</div>
-      ))}
       <input
         type="text"
         value={enteredText}
