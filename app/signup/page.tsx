@@ -55,6 +55,10 @@ export default function SignupPage() {
       text: "Password cannot contain the word 'password'",
       check: (password: string) => !password.toLowerCase().includes("password"),
     },
+    {
+      text: "Password has a limit of 10 characters",
+      check: (password: string) => password.length <= 10,
+    },
   ];
 
   return (
