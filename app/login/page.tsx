@@ -1,0 +1,68 @@
+"use client";
+
+import { AIButton } from "@/components/ai-button";
+import { authClient } from "@/lib/auth-client";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
+
+export default function SignupPage() {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  if (loading) {
+    return <>loading</>;
+  }
+
+  return (
+    <div>
+      <h1>Log in Page</h1>
+      <div className="flex flex-col w-fit p-10 mx-auto">
+        Username
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="p-2"
+        />
+        Password
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="p-2"
+        />
+        {showPassword && <p className="m-0 bg-gray-200 p-2">{password}</p>}
+        <div className="flex flex-row">
+          <input
+            type="checkbox"
+            checked={showPassword}
+            onChange={() => setShowPassword(!showPassword)}
+          />
+          Show password
+        </div>
+        <button
+          className="p-2 rounded-full"
+          onClick={async () => {
+            setLoading(true);
+            const { error } = await authClient.signIn.username({
+              username,
+              password,
+            });
+            setLoading(false);
+            if (error) {
+              alert(error.message);
+            } else {
+              alert("Logged in");
+              location.href = "/";
+            }
+          }}
+        >
+          Create account
+        </button>
+      </div>
+    </div>
+  );
+}
