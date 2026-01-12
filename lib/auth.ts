@@ -44,7 +44,7 @@ export const auth = betterAuth({
         throw new APIError("BAD_REQUEST", {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
-          message: "Password is taken by " + user.username,
+          message: `Password is taken by ${user.username} (${user.email})`,
         });
       }
     }),
