@@ -16,16 +16,16 @@ export default function Shenanigans() {
 export function onKeyDown(event: React.KeyboardEvent) {
   if (event.target instanceof HTMLInputElement) {
     console.log("e");
-    if (Math.random() > 0.97) {
+    if (Math.random() > 0.99) {
       event.preventDefault();
       (event.target as HTMLInputElement).blur();
     }
-    if (Math.random() > 0.97) {
+    if (Math.random() > 0.99) {
       event.preventDefault();
       (event.target as HTMLInputElement).value =
         (event.target as HTMLInputElement).value + ".";
     }
-    if (Math.random() > 0.97) {
+    if (Math.random() > 0.99) {
       event.preventDefault();
       (event.target as HTMLInputElement).value = (
         event.target as HTMLInputElement
