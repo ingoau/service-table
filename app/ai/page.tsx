@@ -5,6 +5,7 @@ import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
 import { AnimatePresence, motion } from "motion/react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
+import * as shenanigans from "@/components/shenanigans";
 
 function AIChat() {
   const chat = useChat({
@@ -72,6 +73,7 @@ function AIChat() {
           value={enteredText}
           onChange={(e) => setEnteredText(e.target.value)}
           className="w-full p-4"
+          onKeyDown={shenanigans.onKeyDown}
         />
         <button
           className="w-full"
