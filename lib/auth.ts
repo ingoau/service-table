@@ -11,6 +11,7 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: false,
+    // idfc about the users, they can log in themselves
     autoSignIn: false,
     // SERIOUSLY. DONT DO THIS IN A PROD APPLICATION
     // IT IS JUST HERE AS A JOKE
