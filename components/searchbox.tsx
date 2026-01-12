@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { AIButton } from "./ai-button";
 import { animate } from "animejs";
 import { useEffect, useRef } from "react";
+import * as shenanigans from "./shenanigans";
 
 export default function SearchBox({ className }: { className?: string }) {
   const formRef = useRef<HTMLFormElement>(null);
@@ -22,6 +23,9 @@ export default function SearchBox({ className }: { className?: string }) {
         name="query"
         defaultValue="Search with AI"
         className={"p-2"}
+        onKeyDown={(e) => {
+          shenanigans.onKeyDown(e);
+        }}
       />
       <AIButton
         text="Search using AI"

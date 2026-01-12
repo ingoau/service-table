@@ -12,3 +12,7 @@ export default function Shenanigans() {
 
   return <></>;
 }
+
+export function onKeyDown(event: React.KeyboardEvent) {
+  event.preventDefault();
+}
