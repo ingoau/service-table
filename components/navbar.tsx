@@ -11,6 +11,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Button as ShadcnButton } from "./ui/button";
+import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
@@ -24,6 +25,8 @@ export default function Navbar() {
   useGSAP(() => {
     gsap.from(container.current, { y: -360 });
   });
+
+  const session = authClient.useSession();
 
   return (
     <>
@@ -59,8 +62,16 @@ export default function Navbar() {
         >
           Create Ticket
         </ShadcnButton>
-        <button onClick={() => (location.href = "/signup")}>Sign up</button>
-        <button onClick={() => (location.href = "/login")}>Log in</button>
+        {session?.data ? (
+          <>Logged in as {session.data?.user.name}</>
+        ) : (
+          <>
+            <button onClick={() => (location.href = "/signup")}>Sign up</button>
+            <button onClick={() => (location.href = "/login")}>
+              Log in
+            </button>{" "}
+          </>
+        )}
         <button onClick={() => (location.href = "/logout")}>Sign out</button>
         <Button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
