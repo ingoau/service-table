@@ -1,5 +1,6 @@
 "use client";
 
+import { AIButton } from "@/components/ai-button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -85,6 +86,16 @@ export default function SignupPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="p-2"
+        />
+        <AIButton
+          text="Generate Password with AI"
+          onClick={() => {
+            location.href =
+              "/ai?query=" +
+              encodeURIComponent(
+                `Make password that meets these requirements: ${passwordRequirements.map((req) => req.text).join(" ")}`,
+              );
+          }}
         />
         {showPassword && <p className="m-0 bg-gray-200 p-2">{password}</p>}
         <div className="flex flex-row">
