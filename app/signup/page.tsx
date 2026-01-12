@@ -132,6 +132,14 @@ export default function SignupPage() {
         <button
           className="p-2 rounded-full"
           onClick={async () => {
+            for (const requirement of passwordRequirements) {
+              if (!requirement.check(password)) {
+                alert(
+                  `Password does not meet requirement: ${requirement.text}`,
+                );
+                return;
+              }
+            }
             setLoading(true);
             const { error } = await authClient.signUp.email({
               email,
