@@ -46,6 +46,7 @@
     "ai": "^6.0.27",
     "animejs": "^4.2.2",
     "antd": "^6.1.4",
+    "better-auth": "^1.4.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
