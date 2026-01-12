@@ -10,6 +10,12 @@ export default function SignupPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  if (loading) {
+    return <>loading</>;
+  }
+
   const passwordRequirements: {
     check: (password: string) => boolean;
     text: string;
@@ -125,13 +131,21 @@ export default function SignupPage() {
         </div>
         <button
           className="p-2 rounded-full"
-          onClick={() => {
-            authClient.signUp.email({
+          onClick={async () => {
+            setLoading(true);
+            const { error } = await authClient.signUp.email({
               email,
               username,
               password,
               name: email,
             });
+            setLoading(false);
+            if (error) {
+              alert(error.message);
+            } else {
+              alert("Account created successfully!");
+              location.href = "/login";
+            }
           }}
         >
           Create account
