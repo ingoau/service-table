@@ -79,6 +79,10 @@ export default function SignupPage() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="p-2"
+          autoComplete="off"
+          data-1p-ignore
+          data-lpignore="true"
+          data-protonpass-ignore="true"
         />
         Username
         <input
@@ -86,6 +90,10 @@ export default function SignupPage() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className="p-2"
+          autoComplete="off"
+          data-1p-ignore
+          data-lpignore="true"
+          data-protonpass-ignore="true"
         />
         Password
         <input
@@ -93,6 +101,10 @@ export default function SignupPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="p-2"
+          autoComplete="off"
+          data-1p-ignore
+          data-lpignore="true"
+          data-protonpass-ignore="true"
         />
         <AIButton
           text="Generate Password with AI"

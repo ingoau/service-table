@@ -26,6 +26,10 @@ export default function SignupPage() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className="p-2"
+          autoComplete="off"
+          data-1p-ignore
+          data-lpignore="true"
+          data-protonpass-ignore="true"
         />
         Password
         <input
@@ -33,6 +37,10 @@ export default function SignupPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="p-2"
+          autoComplete="off"
+          data-1p-ignore
+          data-lpignore="true"
+          data-protonpass-ignore="true"
         />
         {showPassword && <p className="m-0 bg-gray-200 p-2">{password}</p>}
         <div className="flex flex-row">
