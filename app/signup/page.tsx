@@ -7,6 +7,54 @@ export default function SignupPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(true);
+  const passwordRequirements: {
+    check: (password: string) => boolean;
+    text: string;
+  }[] = [
+    {
+      text: "Password must be at least 8 characters long",
+      check: (password: string) => password.length >= 8,
+    },
+    {
+      text: "Password may not contain spaces",
+      check: (password: string) => !password.includes(" "),
+    },
+    {
+      text: "Password must contain at least one uppercase letter",
+      check: (password: string) => /[A-Z]/.test(password),
+    },
+    {
+      text: "Password must contain at least one lowercase letter",
+      check: (password: string) => /[a-z]/.test(password),
+    },
+    {
+      text: "Password must contain at least one number",
+      check: (password: string) => /[0-9]/.test(password),
+    },
+    {
+      text: "Password must contain at least one special character",
+      check: (password: string) =>
+        /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password),
+    },
+    {
+      text: "Password must not contain the letter e",
+      check: (password: string) => !password.toLowerCase().includes("e"),
+    },
+    {
+      text: "Password must not contain 6 or 7",
+      check: (password: string) =>
+        !password.toLowerCase().includes("6") &&
+        !password.toLowerCase().includes("7"),
+    },
+    {
+      text: 'Password must contain "gork"',
+      check: (password: string) => password.toLowerCase().includes("gork"),
+    },
+    {
+      text: "Password cannot contain the word 'password'",
+      check: (password: string) => !password.toLowerCase().includes("password"),
+    },
+  ];
 
   return (
     <div>
