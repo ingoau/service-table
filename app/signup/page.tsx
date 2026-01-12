@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 export default function SignupPage() {
@@ -89,6 +90,22 @@ export default function SignupPage() {
             onChange={() => setShowPassword(!showPassword)}
           />
           Show password
+        </div>
+        <h2>
+          Your security is our priority, so we have implemented password rules
+        </h2>
+        <div className="flex flex-col gap-2 p-4">
+          {passwordRequirements.map((requirement, index) => (
+            <p
+              key={index}
+              className={cn(
+                "m-0 p-2",
+                requirement.check(password) ? "bg-green-300" : "bg-red-300",
+              )}
+            >
+              {requirement.text}
+            </p>
+          ))}
         </div>
         <button className="p-2 rounded-full">Create account</button>
       </div>
