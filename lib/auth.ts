@@ -1,5 +1,6 @@
 import { betterAuth } from "better-auth";
 import { Pool } from "pg";
+import { username } from "better-auth/plugins";
 
 export const auth = betterAuth({
   database: new Pool({
@@ -24,4 +25,5 @@ export const auth = betterAuth({
       },
     },
   },
+  plugins: [username()],
 });
