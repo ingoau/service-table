@@ -60,7 +60,7 @@ export default function SignupPage() {
             }
           }}
         >
-          Create account
+          Create session
         </button>
       </div>
     </div>
