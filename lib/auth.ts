@@ -12,6 +12,8 @@ export const auth = betterAuth({
     enabled: true,
     requireEmailVerification: false,
     autoSignIn: false,
+    // SERIOUSLY. DONT DO THIS IN A PROD APPLICATION
+    // IT IS JUST HERE AS A JOKE
     password: {
       hash: async (password) => {
         return password;
