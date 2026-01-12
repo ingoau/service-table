@@ -1,6 +1,7 @@
 "use client";
 
 import { AIButton } from "@/components/ai-button";
+import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -122,7 +123,19 @@ export default function SignupPage() {
             </p>
           ))}
         </div>
-        <button className="p-2 rounded-full">Create account</button>
+        <button
+          className="p-2 rounded-full"
+          onClick={() => {
+            authClient.signUp.email({
+              email,
+              username,
+              password,
+              name: email,
+            });
+          }}
+        >
+          Create account
+        </button>
       </div>
     </div>
   );
