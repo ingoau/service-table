@@ -11,7 +11,7 @@ export default function SignupPage() {
   return (
     <div>
       <h1>Signup Page</h1>
-      <div className="flex flex-col w-fit p-10">
+      <div className="flex flex-col w-fit p-10 mx-auto">
         Email
         <input
           type="email"
