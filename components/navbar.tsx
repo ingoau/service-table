@@ -34,6 +34,8 @@ export default function Navbar() {
         className="w-screen flex flex-row bg-blue-300 items-center gap-1 flex-wrap sticky top-0"
         ref={container}
       >
+        {/* eslint-disable-next-line @next/next/no-img-element*/}
+        <img src="/logo.png" alt="Logo" />
         <h2 className="text-blue-500">Failsforce Service Table</h2>
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/">Home</a>
