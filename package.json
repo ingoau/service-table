@@ -90,5 +90,8 @@
   "trustedDependencies": [
     "sharp",
     "unrs-resolver"
+  ],
+  "browsersList": [
+    "ie 11"
   ]
 }
