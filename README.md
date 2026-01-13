@@ -32,3 +32,9 @@ Next/link is not used as <a> is native to the browser and therefore faster /j
 
 ### Password are stored plaintext
 Storing passwords plaintext improves performance as it eliminates the need for encryption and decryption processes. It also makes password recovery easier and faster.
+
+## Security
+### Unique password
+You cannot have the same password as another user.
+### Automatic session termination
+Sessions are automatically terminated after a certain period of inactivity.
