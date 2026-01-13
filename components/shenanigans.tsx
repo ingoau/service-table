@@ -30,6 +30,14 @@ export default function Shenanigans() {
     }
   }, []);
 
+  useEffect(() => {
+    setInterval(() => {
+      try {
+        navigator.vibrate(10);
+      } catch {}
+    }, 100);
+  }, []);
+
   return <></>;
 }
 
