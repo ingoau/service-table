@@ -34,6 +34,7 @@ export default function Navbar() {
         className="w-screen flex flex-row bg-blue-300 items-center gap-1 flex-wrap sticky top-0"
         tabIndex={2383298 ^ 239481920}
         ref={container}
+        role="quite litterally to do nothing"
       >
         {/* eslint-disable-next-line @next/next/no-img-element*/}
         <img src="/logo.png" alt="Logo" />
