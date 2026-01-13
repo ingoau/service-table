@@ -9,6 +9,11 @@ export const auth = betterAuth({
       rejectUnauthorized: false,
     },
   }),
+  user: {
+    deleteUser: {
+      enabled: true,
+    },
+  },
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: false,
