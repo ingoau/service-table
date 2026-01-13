@@ -39,6 +39,7 @@ export default function RootLayout({
           defaultTheme="light"
           disableTransitionOnChange
         >
+          <Shenanigans />
           <Navbar />
           <Fab
             variant="extended"
@@ -50,7 +51,6 @@ export default function RootLayout({
           <AIButton className="fixed! bottom-0 right-0" />
           {children}
           <TitleSetter />
-          <Shenanigans />
           <Footer />
         </ThemeProvider>
       </body>
