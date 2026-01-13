@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes";
 import { Fab } from "@mui/material";
 import Footer from "@/components/footer";
 import Shenanigans from "@/components/shenanigans";
+import SessionTerminator from "@/components/session-terminator";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Shenanigans />
+          <SessionTerminator />
           <Navbar />
           <Fab
             variant="extended"
