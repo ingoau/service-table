@@ -78,8 +78,9 @@ export default function Navbar() {
           <div className="flex flex-row">
             Logged in as {session.data?.user.name}
             <button
-              onClick={() => {
-                authClient.deleteUser();
+              onClick={async () => {
+                await authClient.deleteUser();
+                location.reload();
               }}
             >
               Delete account
