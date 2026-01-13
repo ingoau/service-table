@@ -57,6 +57,18 @@ export default function Footer() {
               />
             </>
           ))}
+        {Array(1000)
+          .fill(null)
+          .map((_, index) => (
+            <>
+              {/*eslint-disable-next-line @next/next/no-img-element*/}
+              <img
+                src={`/images/${index + 1}.png`}
+                alt=""
+                className="w-10 h-10 hidden"
+              />
+            </>
+          ))}
         <div className="flex justify-between items-center">
           <div className="text-sm">
             &copy; {new Date().getFullYear()} Service Table. All rights
