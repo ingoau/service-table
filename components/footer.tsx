@@ -49,22 +49,17 @@ export default function Footer() {
           .fill(null)
           .map((_, index) => (
             <>
-              {/*eslint-disable-next-line @next/next/no-img-element*/}
-              <img
-                src={`/images/${index + 1}.png`}
-                alt=""
-                className="w-10 h-10"
-              />
+              {/*eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text*/}
+              <img src={`/images/${index + 1}.png`} className="w-10 h-10" />
             </>
           ))}
         {Array(1000)
           .fill(null)
           .map((_, index) => (
             <>
-              {/*eslint-disable-next-line @next/next/no-img-element*/}
+              {/*eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text*/}
               <img
                 src={`/images/${index + 1}.png`}
-                alt=""
                 className="w-10 h-10 hidden"
               />
             </>
