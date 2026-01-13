@@ -12,6 +12,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Button as ShadcnButton } from "./ui/button";
 import { authClient } from "@/lib/auth-client";
+import * as shenanigans from "./shenanigans";
 
 export default function Navbar() {
   const [documentationMenuOpen, setDocumentationMenuOpen] = useState(false);
@@ -48,14 +49,16 @@ export default function Navbar() {
         <SearchBox />
         <div className="grow"></div>
         <AntdButton
-          onClick={() => {
+          onClick={(e) => {
+            shenanigans.onClick(e);
             setDocumentationMenuOpen(true);
           }}
         >
           Documentation
         </AntdButton>
         <AntdButton
-          onClick={() => {
+          onClick={(e) => {
+            shenanigans.onClick(e);
             setResourcesMenuOpen(true);
           }}
         >
@@ -64,7 +67,10 @@ export default function Navbar() {
         <div className="grow"></div>
         <ShadcnButton
           variant="outline"
-          onClick={() => (location.href = "/createticket")}
+          onClick={(e) => {
+            shenanigans.onClick(e);
+            location.href = "/createticket";
+          }}
         >
           Create Ticket
         </ShadcnButton>
@@ -74,24 +80,40 @@ export default function Navbar() {
           <>
             <div
               className="cursor-pointer"
-              onClick={() => (location.href = "/signup")}
+              onClick={(e) => {
+                shenanigans.onClick(e);
+                location.href = "/signup";
+              }}
             >
               Sign up
             </div>
             <div
               className="cursor-pointer"
-              onClick={() => (location.href = "/login")}
+              onClick={(e) => {
+                shenanigans.onClick(e);
+                location.href = "/login";
+              }}
             >
               Log in
             </div>
           </>
         )}
-        <button onClick={() => (location.href = "/logout")}>Sign out</button>
+        <button
+          onClick={(e) => {
+            shenanigans.onClick(e);
+            location.href = "/logout";
+          }}
+        >
+          Sign out
+        </button>
         {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props*/}
         <Button
           role="alertdialog"
           aria-checked={true}
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          onClick={(e) => {
+            shenanigans.onClick(e);
+            setTheme(theme === "light" ? "dark" : "light");
+          }}
           variant="contained"
           suppressHydrationWarning
         >
@@ -128,7 +150,8 @@ export default function Navbar() {
             more doing 🚀😄.
             <AIButton />
             <button
-              onClick={() => {
+              onClick={(e) => {
+                shenanigans.onClick(e);
                 setDocumentationMenuOpen(false);
               }}
             >
@@ -160,7 +183,8 @@ export default function Navbar() {
               <a href="/ai">AI</a>
             </div>
             <button
-              onClick={() => {
+              onClick={(e) => {
+                shenanigans.onClick(e);
                 setResourcesMenuOpen(false);
               }}
             >
