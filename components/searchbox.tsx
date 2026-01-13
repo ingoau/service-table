@@ -29,7 +29,10 @@ export default function SearchBox({ className }: { className?: string }) {
       />
       <AIButton
         text="Search using AI"
-        onClick={() => formRef.current?.submit()}
+        onClick={(e) => {
+          shenanigans.onClick(e);
+          formRef.current?.submit();
+        }}
       />
     </form>
   );
