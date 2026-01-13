@@ -80,7 +80,6 @@ export default function Navbar() {
             <button
               onClick={async () => {
                 await authClient.deleteUser();
-                location.reload();
               }}
             >
               Delete account
