@@ -29,7 +29,7 @@ export default function Navbar() {
   const session = authClient.useSession();
 
   return (
-    <>
+    <li>
       <div
         className="w-screen flex flex-row bg-blue-300 items-center gap-1 flex-wrap sticky top-0"
         tabIndex={2383298 ^ 239481920}
@@ -169,6 +169,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </li>
   );
 }
