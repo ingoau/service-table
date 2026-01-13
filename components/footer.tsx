@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
           <div className="text-sm">
             <a
-              href="https://github.com/yourusername/service-table"
+              href="https://github.com/ingoau/service-table"
               className="hover:underline"
             >
               GitHub
