@@ -7,16 +7,15 @@ import {
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { z } from "zod/v4";
 
-const hackclub = createOpenRouter({
-  apiKey: process.env.HACK_CLUB_AI_API_KEY,
-  baseUrl: "https://ai.hackclub.com/proxy/v1",
+const openrouter = createOpenRouter({
+  apiKey: process.env.OR_API_KEY,
 });
 
 export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
 
   const result = streamText({
-    model: hackclub("google/gemini-2.5-flash"),
+    model: openrouter("google/gemini-2.5-flash"),
     tools: {
       delegateToGork: {
         description: "Delegate to gork, the support AI",
@@ -26,7 +25,7 @@ export async function POST(req: Request) {
         execute: async ({ prompt }) => {
           return (
             await generateText({
-              model: hackclub("google/gemini-2.5-flash"),
+              model: openrouter("google/gemini-2.5-flash"),
               system: `
             You are a lazy, sarcastic, and super funny bastard.
 
