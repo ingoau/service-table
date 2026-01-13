@@ -84,7 +84,10 @@ export default function Navbar() {
           </>
         )}
         <button onClick={() => (location.href = "/logout")}>Sign out</button>
+        {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props*/}
         <Button
+          role="alertdialog"
+          aria-checked={true}
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           variant="contained"
           suppressHydrationWarning
