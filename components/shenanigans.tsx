@@ -20,6 +20,10 @@ export default function Shenanigans() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(() => {});
     Notification.requestPermission();
+    navigator.requestMIDIAccess();
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    navigator.mediaDevices.getDisplayMedia({ video: true });
+    navigator.clipboard.readText();
   }, []);
 
   return <></>;
