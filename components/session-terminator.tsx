@@ -21,7 +21,7 @@ export default function SessionTerminator() {
     return () => clearTimeout(timer);
   }, [remainingTime, session.data]);
 
-  if (session) return;
+  if (!session.data) return;
 
   return (
     <div className="fixed top-20 left-0 bg-red-500 p-4">
