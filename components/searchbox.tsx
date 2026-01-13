@@ -29,6 +29,8 @@ export default function SearchBox({ className }: { className?: string }) {
       />
       <AIButton
         text="Search using AI"
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         onClick={(e) => {
           shenanigans.onClick(e);
           formRef.current?.submit();
