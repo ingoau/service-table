@@ -2,17 +2,6 @@
 
 import { useEffect } from "react";
 
-function expensive(n: number) {
-  let x = 0;
-  for (let i = 0; i < n; i++) x += Math.sqrt(i);
-  return x;
-}
-
-export function SlowRender() {
-  const value = expensive(5_000_000);
-  return <div>{value}</div>;
-}
-
 export default function Shenanigans() {
   useEffect(() => {
     addEventListener("beforeunload", (event) => {
@@ -28,11 +17,7 @@ export default function Shenanigans() {
     }
   }, []);
 
-  return (
-    <>
-      <SlowRender />
-    </>
-  );
+  return <></>;
 }
 
 export function onKeyDown(event: React.KeyboardEvent) {
