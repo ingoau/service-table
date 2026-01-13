@@ -4,7 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { useEffect, useState } from "react";
 
 export default function SessionTerminator() {
-  const [remainingTime, setRemainingTime] = useState(10);
+  const [remainingTime, setRemainingTime] = useState(100);
 
   const session = authClient.useSession();
 
