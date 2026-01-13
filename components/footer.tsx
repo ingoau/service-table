@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
         )}
         {/*eslint-disable-next-line @next/next/no-img-element*/}
-        <img src="/logo.png" alt="Logo" className="w-10 h-10" />
+        <img src="/logo.png" alt="" className="w-10 h-10" />
         <div className="flex justify-between items-center">
           <div className="text-sm">
             &copy; {new Date().getFullYear()} Service Table. All rights
