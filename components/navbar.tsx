@@ -35,6 +35,8 @@ export default function Navbar() {
         tabIndex={2383298 ^ 239481920}
         ref={container}
         role="quite litterally to do nothing"
+        // eslint-disable-next-line jsx-a11y/aria-props
+        aria-wtf="idek at this point"
       >
         {/* eslint-disable-next-line @next/next/no-img-element*/}
         <img src="/logo.png" alt="Logo" />
