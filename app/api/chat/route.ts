@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
 
   const result = streamText({
-    model: openrouter("google/gemini-2.5-flash"),
+    model: openrouter("google/gemini-3-flash-preview"),
     tools: {
       delegateToGork: {
         description: "Delegate to gork, the support AI",
