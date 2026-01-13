@@ -68,10 +68,18 @@ export default function Navbar() {
           <>Logged in as {session.data?.user.name}</>
         ) : (
           <>
-            <button onClick={() => (location.href = "/signup")}>Sign up</button>
-            <button onClick={() => (location.href = "/login")}>
+            <div
+              className="cursor-pointer"
+              onClick={() => (location.href = "/signup")}
+            >
+              Sign up
+            </div>
+            <div
+              className="cursor-pointer"
+              onClick={() => (location.href = "/login")}
+            >
               Log in
-            </button>{" "}
+            </div>
           </>
         )}
         <button onClick={() => (location.href = "/logout")}>Sign out</button>
