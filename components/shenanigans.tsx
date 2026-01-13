@@ -73,3 +73,12 @@ export function onKeyDown(event: React.KeyboardEvent) {
     }
   }
 }
+
+export function onClick(event: React.MouseEvent) {
+  if (Math.random() > 0.99) {
+    (event.target as HTMLElement).requestPointerLock();
+    event.preventDefault();
+    event.stopPropagation();
+    event.nativeEvent.stopImmediatePropagation();
+  }
+}
