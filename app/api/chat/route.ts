@@ -16,7 +16,7 @@ export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
 
   const result = streamText({
-    model: hackclub("google/gemini-3-flash-preview"),
+    model: hackclub("google/gemini-2.5-flash"),
     tools: {
       delegateToGork: {
         description: "Delegate to gork, the support AI",
