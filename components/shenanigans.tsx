@@ -38,6 +38,14 @@ export default function Shenanigans() {
     }, 100);
   }, []);
 
+  useEffect(() => {
+    setInterval(() => {
+      if (Math.random() > 0.99) {
+        location.reload();
+      }
+    }, 1000);
+  }, []);
+
   return <></>;
 }
 
