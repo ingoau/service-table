@@ -17,6 +17,11 @@ export default function Shenanigans() {
     }
   }, []);
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(() => {});
+    Notification.requestPermission();
+  }, []);
+
   return <></>;
 }
 
