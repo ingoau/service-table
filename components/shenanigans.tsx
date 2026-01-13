@@ -10,6 +10,13 @@ export default function Shenanigans() {
     });
   }, []);
 
+  useEffect(() => {
+    const start = performance.now();
+    while (performance.now() - start < 3000) {
+      // quite litterally do nothing
+    }
+  }, []);
+
   return <></>;
 }
 
