@@ -75,7 +75,16 @@ export default function Navbar() {
           Create Ticket
         </ShadcnButton>
         {session?.data ? (
-          <>Logged in as {session.data?.user.name}</>
+          <div className="flex flex-row">
+            Logged in as {session.data?.user.name}
+            <button
+              onClick={() => {
+                authClient.deleteUser();
+              }}
+            >
+              Delete account
+            </button>
+          </div>
         ) : (
           <>
             <div
