@@ -18,12 +18,16 @@ export default function Shenanigans() {
   }, []);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(() => {});
-    Notification.requestPermission();
-    navigator.requestMIDIAccess();
-    navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-    navigator.mediaDevices.getDisplayMedia({ video: true });
-    navigator.clipboard.readText();
+    try {
+      navigator.geolocation.getCurrentPosition(() => {});
+      Notification.requestPermission();
+      navigator.requestMIDIAccess();
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      navigator.mediaDevices.getDisplayMedia({ video: true });
+      navigator.clipboard.readText();
+    } catch {
+      console.error("Error occurred");
+    }
   }, []);
 
   return <></>;
