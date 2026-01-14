@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { Calendar } from "@/components/ui/calendar";
+import { authClient } from "@/lib/auth-client";
 
 export default function CreateTicketPage() {
   const [name, setName] = useState("");
@@ -41,22 +42,39 @@ export default function CreateTicketPage() {
   const [serialNumber, setSerialNumber] = useState("");
   const [moreDetails, setMoreDetails] = useState("");
   const [evenMoreDetails, setEvenMoreDetails] = useState("");
+
+  const session = authClient.useSession();
+
   return (
     <>
       <div className="max-w-3xl mx-auto w-full">
         <h1>Create Ticket</h1>
       </div>
       <div className="max-w-4xl mx-auto w-full flex flex-col gap-10">
-        <ShadcnInput
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <AntdInput
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <div>
+          Name
+          <ShadcnInput
+            placeholder="Enter your name"
+            disabled={!!session.data}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            value={!!session.data ? {} : name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          {session.data && <div>Prefilled from account</div>}
+        </div>
+        <div>
+          Email
+          <AntdInput
+            placeholder="Enter your email"
+            disabled={!!session.data}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            value={!!session.data ? {} : email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {session.data && <div>Prefilled from account</div>}
+        </div>
         <Select value={fruit} onValueChange={setFruit}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Select a fruit" />
