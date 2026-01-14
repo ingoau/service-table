@@ -90,11 +90,6 @@ export default function CreateTicketPage() {
 
     if (!yearOfBirth) {
       errors.push("Year of birth is required");
-    } else {
-      const year = parseInt(yearOfBirth);
-      if (isNaN(year) || year < 1900 || year > new Date().getFullYear()) {
-        errors.push("Year of birth is invalid");
-      }
     }
 
     if (!preferredContact.trim()) {
@@ -227,7 +222,9 @@ export default function CreateTicketPage() {
             name=""
             id=""
             value={yearOfBirth}
-            onChange={(e) => setYearOfBirth(e.target.value)}
+            onChange={(e) => {
+              setYearOfBirth(e.target.value);
+            }}
           >
             {Array.from({ length: 3000 }, (_, i) => i)
               // eslint-disable-next-line react-hooks/purity
