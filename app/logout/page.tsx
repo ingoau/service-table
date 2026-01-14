@@ -19,10 +19,10 @@ export default function LogoutPage() {
     );
   }
   return (
-    <>
-      <button onClick={() => authClient.signOut()} className="m-4 p-4">
+    <div className="flex items-center w-screen">
+      <button onClick={() => authClient.signOut()} className="p-4 mx-auto">
         Log out
       </button>
-    </>
+    </div>
   );
 }
