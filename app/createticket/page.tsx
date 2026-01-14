@@ -191,9 +191,7 @@ export default function CreateTicketPage() {
           placeholder="Enter your message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-        >
-          Enter your message
-        </textarea>
+        ></textarea>
         <div className="p-4 flex flex-col gap-2">
           Phone number
           <Slider
