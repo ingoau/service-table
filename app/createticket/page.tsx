@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import * as shenanigans from "@/components/shenanigans";
 import {
   FormControl,
@@ -24,15 +25,39 @@ import { Slider } from "@/components/ui/slider";
 import { Calendar } from "@/components/ui/calendar";
 
 export default function CreateTicketPage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [fruit, setFruit] = useState("");
+  const [contactReason, setContactReason] = useState("");
+  const [message, setMessage] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState([0]);
+  const [howHeard, setHowHeard] = useState("");
+  const [address, setAddress] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState<Date | undefined>(undefined);
+  const [yearOfBirth, setYearOfBirth] = useState("");
+  const [referenceNumber, setReferenceNumber] = useState("");
+  const [orderId, setOrderId] = useState("");
+  const [preferredContact, setPreferredContact] = useState("");
+  const [serialNumber, setSerialNumber] = useState("");
+  const [moreDetails, setMoreDetails] = useState("");
+  const [evenMoreDetails, setEvenMoreDetails] = useState("");
   return (
     <>
       <div className="max-w-3xl mx-auto w-full">
         <h1>Create Ticket</h1>
       </div>
       <div className="max-w-4xl mx-auto w-full flex flex-col gap-10">
-        <ShadcnInput placeholder="Enter your name" />
-        <AntdInput placeholder="Enter your email" />
-        <Select>
+        <ShadcnInput
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <AntdInput
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Select value={fruit} onValueChange={setFruit}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Select a fruit" />
           </SelectTrigger>
@@ -53,23 +78,52 @@ export default function CreateTicketPage() {
             <InputLabel id="demo-simple-select-label">
               Contact reason
             </InputLabel>
-            <MUISelect label="Reason">
+            <MUISelect
+              label="Reason"
+              value={contactReason}
+              onChange={(e) => setContactReason(e.target.value)}
+            >
               <MenuItem value={"support"}>Support</MenuItem>
             </MUISelect>
           </FormControl>
         </div>
-        <textarea placeholder="Enter your message">Enter your message</textarea>
+        <textarea
+          placeholder="Enter your message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        >
+          Enter your message
+        </textarea>
         <div className="p-4 flex flex-col gap-2">
           Phone number
-          <Slider />
+          <Slider value={phoneNumber} onValueChange={setPhoneNumber} />
         </div>
-        <input type="text" placeholder="How did you hear about us" />
-        <MUIInput type="text" placeholder="Address" />
+        <input
+          type="text"
+          placeholder="How did you hear about us"
+          value={howHeard}
+          onChange={(e) => setHowHeard(e.target.value)}
+        />
+        <MUIInput
+          type="text"
+          placeholder="Address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
         <div>
           Day of brith
-          <Calendar />
+          <Calendar
+            mode="single"
+            selected={dateOfBirth}
+            onSelect={setDateOfBirth}
+          />
           year of birth
-          <select name="" id="">
+          <select
+            name=""
+            id=""
+            value={yearOfBirth}
+            onChange={(e) => setYearOfBirth(e.target.value)}
+          >
             {Array.from({ length: 3000 }, (_, i) => i)
               // eslint-disable-next-line react-hooks/purity
               .sort(() => Math.random() - 0.5)
@@ -80,12 +134,42 @@ export default function CreateTicketPage() {
               ))}
           </select>
         </div>
-        <input type="text" placeholder="Reference number (if you have one)" />
-        <MUIInput type="text" placeholder="Order ID (if you have one)" />
-        <ShadcnInput type="text" placeholder="Prefered contact method and time" />
-        <input type="text" placeholder="Device serial number" />
-        <input type="text" placeholder="More details" />
-        <input type="text" placeholder="Even more details" />
+        <input
+          type="text"
+          placeholder="Reference number (if you have one)"
+          value={referenceNumber}
+          onChange={(e) => setReferenceNumber(e.target.value)}
+        />
+        <MUIInput
+          type="text"
+          placeholder="Order ID (if you have one)"
+          value={orderId}
+          onChange={(e) => setOrderId(e.target.value)}
+        />
+        <ShadcnInput
+          type="text"
+          placeholder="Prefered contact method and time"
+          value={preferredContact}
+          onChange={(e) => setPreferredContact(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Device serial number"
+          value={serialNumber}
+          onChange={(e) => setSerialNumber(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="More details"
+          value={moreDetails}
+          onChange={(e) => setMoreDetails(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Even more details"
+          value={evenMoreDetails}
+          onChange={(e) => setEvenMoreDetails(e.target.value)}
+        />
       </div>
     </>
   );
