@@ -125,6 +125,12 @@ export default function CreateTicketPage() {
     <>
       <div className="max-w-3xl mx-auto w-full">
         <h1>Create Ticket</h1>
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold"
+        >
+          Submit Ticket
+        </button>
       </div>
       <div className="max-w-4xl mx-auto w-full flex flex-col gap-10">
         <div>
@@ -272,12 +278,6 @@ export default function CreateTicketPage() {
           value={evenMoreDetails}
           onChange={(e) => setEvenMoreDetails(e.target.value)}
         />
-        <button
-          onClick={handleSubmit}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Submit Ticket
-        </button>
       </div>
     </>
   );
