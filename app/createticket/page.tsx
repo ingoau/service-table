@@ -113,15 +113,16 @@ export default function CreateTicketPage() {
       errors.push("Even more details are required");
     }
 
-    if (session.data) {
-      errors.push("Email is invalid");
-    } else {
-      errors.push("Sign in required");
-    }
-
     if (errors.length > 0) {
       alert("Please fix the following errors:\n\n" + errors.join("\n"));
       return;
+    }
+
+    if (session.data) {
+      alert("Email is invalid");
+    } else {
+      alert("Sign in required");
+      location.href = "/signin";
     }
   }
 
