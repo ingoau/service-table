@@ -24,7 +24,7 @@ export default function SessionTerminator() {
   if (!session.data) return;
 
   return (
-    <div className="fixed top-20 left-0 bg-red-500 p-4">
+    <div className="fixed top-20 right-0 bg-red-500 p-4">
       <p>
         For your security this Session will terminate in {remainingTime} seconds
       </p>
