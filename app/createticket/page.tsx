@@ -117,7 +117,7 @@ export default function CreateTicketPage() {
       alert("Email is invalid");
     } else {
       alert("Sign in required");
-      location.href = "/signin";
+      location.href = "/login";
     }
   }
 
