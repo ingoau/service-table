@@ -114,7 +114,13 @@ export default function CreateTicketPage() {
         </textarea>
         <div className="p-4 flex flex-col gap-2">
           Phone number
-          <Slider value={phoneNumber} onValueChange={setPhoneNumber} />
+          <Slider
+            value={phoneNumber}
+            onValueChange={setPhoneNumber}
+            min={0}
+            max={100000000000}
+          />
+          +{phoneNumber}
         </div>
         <input
           type="text"
