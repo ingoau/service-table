@@ -68,16 +68,10 @@ export default function CreateTicketPage() {
         <div>
           Day of brith
           <Calendar />
-        </div>
-        <input type="text" placeholder="Reference number (if you have one)" />
-        <input type="text" placeholder="Order ID (if you have one)" />
-        <input type="text" placeholder="Prefered contact method and time" />
-        <input type="text" placeholder="Device serial number" />
-
-        <div>
           year of birth
           <select name="" id="">
             {Array.from({ length: 3000 }, (_, i) => i)
+              // eslint-disable-next-line react-hooks/purity
               .sort(() => Math.random() - 0.5)
               .map((value, i) => (
                 <option key={i} value={value.toString()}>
@@ -86,6 +80,12 @@ export default function CreateTicketPage() {
               ))}
           </select>
         </div>
+        <input type="text" placeholder="Reference number (if you have one)" />
+        <MUIInput type="text" placeholder="Order ID (if you have one)" />
+        <ShadcnInput type="text" placeholder="Prefered contact method and time" />
+        <input type="text" placeholder="Device serial number" />
+        <input type="text" placeholder="More details" />
+        <input type="text" placeholder="Even more details" />
       </div>
     </>
   );
