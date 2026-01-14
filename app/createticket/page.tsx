@@ -30,7 +30,7 @@ export default function CreateTicketPage() {
   const [email, setEmail] = useState("");
   const [fruit, setFruit] = useState("");
   const [contactReason, setContactReason] = useState("");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("Enter your message");
   const [phoneNumber, setPhoneNumber] = useState([0]);
   const [howHeard, setHowHeard] = useState("");
   const [address, setAddress] = useState("");
