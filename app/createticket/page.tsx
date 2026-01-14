@@ -45,6 +45,86 @@ export default function CreateTicketPage() {
 
   const session = authClient.useSession();
 
+  function handleSubmit() {
+    const errors: string[] = [];
+
+    if (!session.data && !name.trim()) {
+      errors.push("Name is required");
+    }
+
+    if (!session.data) {
+      if (!email.trim()) {
+        errors.push("Email is required");
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errors.push("Email is invalid");
+      }
+    }
+
+    if (!fruit) {
+      errors.push("Please select a fruit");
+    }
+
+    if (!contactReason) {
+      errors.push("Contact reason is required");
+    }
+
+    if (!message.trim() || message === "Enter your message") {
+      errors.push("Message is required");
+    }
+
+    if (!phoneNumber[0] || phoneNumber[0] === 0) {
+      errors.push("Phone number is required");
+    }
+
+    if (!howHeard.trim()) {
+      errors.push("Please tell us how you heard about us");
+    }
+
+    if (!address.trim()) {
+      errors.push("Address is required");
+    }
+
+    if (!dateOfBirth) {
+      errors.push("Date of birth is required");
+    }
+
+    if (!yearOfBirth) {
+      errors.push("Year of birth is required");
+    } else {
+      const year = parseInt(yearOfBirth);
+      if (isNaN(year) || year < 1900 || year > new Date().getFullYear()) {
+        errors.push("Year of birth is invalid");
+      }
+    }
+
+    if (!preferredContact.trim()) {
+      errors.push("Preferred contact method is required");
+    }
+
+    if (!serialNumber.trim()) {
+      errors.push("Device serial number is required");
+    }
+
+    if (!moreDetails.trim()) {
+      errors.push("More details are required");
+    }
+
+    if (!evenMoreDetails.trim()) {
+      errors.push("Even more details are required");
+    }
+
+    if (session.data) {
+      errors.push("Email is invalid");
+    } else {
+      errors.push("Sign in required");
+    }
+
+    if (errors.length > 0) {
+      alert("Please fix the following errors:\n\n" + errors.join("\n"));
+      return;
+    }
+  }
+
   return (
     <>
       <div className="max-w-3xl mx-auto w-full">
@@ -194,6 +274,12 @@ export default function CreateTicketPage() {
           value={evenMoreDetails}
           onChange={(e) => setEvenMoreDetails(e.target.value)}
         />
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Submit Ticket
+        </button>
       </div>
     </>
   );
