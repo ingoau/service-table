@@ -3,6 +3,7 @@
 import { Editor } from "@tinymce/tinymce-react";
 import { useState } from "react";
 import Error from "./error";
+import * as shenanigans from "./shenanigans";
 
 export default function Footer() {
   const [submitted, setSubmitted] = useState(false);
@@ -45,25 +46,27 @@ export default function Footer() {
             </button>
           </div>
         )}
-        {Array(100)
-          .fill(null)
-          .map((_, index) => (
-            <>
-              {/*eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text*/}
-              <img src={`/images/${index + 1}.png`} className="w-10 h-10" />
-            </>
-          ))}
-        {Array(1000)
-          .fill(null)
-          .map((_, index) => (
-            <>
-              {/*eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text*/}
-              <img
-                src={`/images/${index + 1}.png`}
-                className="w-10 h-10 hidden"
-              />
-            </>
-          ))}
+        {shenanigans.ENABLE &&
+          Array(100)
+            .fill(null)
+            .map((_, index) => (
+              <>
+                {/*eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text*/}
+                <img src={`/images/${index + 1}.png`} className="w-10 h-10" />
+              </>
+            ))}
+        {shenanigans.ENABLE &&
+          Array(1000)
+            .fill(null)
+            .map((_, index) => (
+              <>
+                {/*eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text*/}
+                <img
+                  src={`/images/${index + 1}.png`}
+                  className="w-10 h-10 hidden"
+                />
+              </>
+            ))}
         <div className="flex justify-between items-center">
           <div className="text-sm">
             &copy; {new Date().getFullYear()} Service Table. All rights
