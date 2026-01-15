@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export const ENABLE = false;
+export const ENABLE = true;
 
 export default function Shenanigans() {
   useEffect(() => {
@@ -60,8 +60,14 @@ export default function Shenanigans() {
 
   useEffect(() => {
     function handleScroll() {
-      if (Math.random() > 0.9 && ENABLE) {
-        document.body.style.paddingTop = Math.random() * 100 + "px";
+      if (ENABLE) {
+        if (Math.random() > 0.9) {
+          document.body.style.paddingTop = Math.random() * 100 + "px";
+        }
+        document.addEventListener("scroll", handleScroll);
+        return () => {
+          document.removeEventListener("scroll", handleScroll);
+        };
       }
     }
   }, []);
