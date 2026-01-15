@@ -26,13 +26,15 @@ export async function POST(req: Request) {
             .min(1)
             .max(1000)
             .describe(
-              "Text to show to the user while waiting for the response",
+              "Text to show to the user while waiting for the response. Be sarcastic about this. Say how good gork is. Basically paraphrase the prompt",
             ),
           complete: z
             .string()
             .min(1)
             .max(1000)
-            .describe("Text to show to the user when the response is complete"),
+            .describe(
+              "Text to show to the user when the response is complete. Be sarcastic about this. Say how good gork is.",
+            ),
         }),
         execute: async ({ prompt }) => {
           return (
