@@ -48,9 +48,6 @@ function AIChat() {
                 if (part.type == "tool-delegateToGork")
                   return (
                     <motion.div
-                      animate={{ y: 0 }}
-                      initial={{ y: 100 }}
-                      transition={{ duration: 1, ease: "linear" }}
                       className="border w-fit rounded-full"
                       key={index}
                     >
