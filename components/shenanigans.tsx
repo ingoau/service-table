@@ -59,16 +59,16 @@ export default function Shenanigans() {
   }, []);
 
   useEffect(() => {
-    function handleScroll() {
-      if (ENABLE) {
+    if (ENABLE) {
+      function handleScroll() {
         if (Math.random() > 0.9) {
           document.body.style.paddingTop = Math.random() * 100 + "px";
         }
-        document.addEventListener("scroll", handleScroll);
-        return () => {
-          document.removeEventListener("scroll", handleScroll);
-        };
       }
+      document.addEventListener("scroll", handleScroll);
+      return () => {
+        document.removeEventListener("scroll", handleScroll);
+      };
     }
   }, []);
 
