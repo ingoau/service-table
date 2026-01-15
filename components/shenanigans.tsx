@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export const ENABLE = true;
+export const ENABLE = false;
 
 export default function Shenanigans() {
   useEffect(() => {
@@ -55,6 +55,14 @@ export default function Shenanigans() {
           location.reload();
         }
       }, 1000);
+    }
+  }, []);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (Math.random() > 0.9 && ENABLE) {
+        document.body.style.paddingTop = Math.random() * 100 + "px";
+      }
     }
   }, []);
 
