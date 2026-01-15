@@ -56,11 +56,8 @@ function AIChat() {
                     >
                       <p className="block translate-x-5">
                         {part.state === "output-available"
-                          ? "Asked gork"
-                          : "Asking gork"}
-                        {' "'}
-                        {(part.input as { prompt: string })?.prompt || ""}
-                        {'"'}
+                          ? (part.input as { complete: string })?.complete || ""
+                          : (part.input as { loading: string })?.loading || ""}
                       </p>
                     </motion.div>
                   );
