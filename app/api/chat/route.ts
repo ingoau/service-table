@@ -33,7 +33,7 @@ export async function POST(req: Request) {
             .min(1)
             .max(1000)
             .describe(
-              "Text to show to the user when the response is complete. Be sarcastic about this. Say how good gork is.",
+              "Text to show to the user when the response is complete. Be sarcastic about this. Say how good gork is. Do not repeat this in your response.",
             ),
         }),
         execute: async ({ prompt }) => {
