@@ -52,7 +52,7 @@ function AIChat() {
                       className="border w-fit rounded-full"
                       key={index}
                     >
-                      <p className="block translate-x-5">
+                      <p className="block translate-x-5 p-0 m-0">
                         {part.state !== "output-available" && <Spinner />}
                         {(part.input as { loading: string })?.loading}
                         <br />
