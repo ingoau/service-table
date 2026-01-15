@@ -31,8 +31,8 @@ function AIChat() {
                 if (part.type == "text")
                   return (
                     <motion.div
-                      animate={{ y: 0 }}
-                      initial={{ y: 100 }}
+                      animate={{ x: 0 }}
+                      initial={{ x: -100 }}
                       transition={{ duration: 1, ease: "linear" }}
                       key={index}
                       className={cn(
