@@ -10,7 +10,8 @@ export default function SearchBox({ className }: { className?: string }) {
   const formRef = useRef<HTMLFormElement>(null);
   useEffect(() => {
     animate(formRef.current as HTMLFormElement, {
-      scale: [0, 1],
+      scale: [0.8, 1],
+      y: [1000, 0],
       duration: 500,
       easing: "easeInOutQuad",
     });
