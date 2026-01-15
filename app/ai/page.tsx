@@ -36,13 +36,13 @@ function AIChat() {
                       transition={{ duration: 1, ease: "linear" }}
                       key={index}
                       className={cn(
-                        "p-4 w-fit rounded-full",
+                        "w-fit rounded-full",
                         message.role === "assistant"
                           ? "bg-blue-200 max-w-4xl rounded-bl-none"
                           : "bg-gray-200 ml-auto rounded-br-none",
                       )}
                     >
-                      {part.text}
+                      <p className="block translate-x-5">{part.text}</p>
                     </motion.div>
                   );
                 if (part.type == "tool-delegateToGork")
@@ -51,15 +51,17 @@ function AIChat() {
                       animate={{ y: 0 }}
                       initial={{ y: 100 }}
                       transition={{ duration: 1, ease: "linear" }}
-                      className="p-1 border w-fit rounded-full"
+                      className="border w-fit rounded-full"
                       key={index}
                     >
-                      {part.state === "output-available"
-                        ? "Asked gork"
-                        : "Asking gork"}
-                      {' "'}
-                      {(part.input as { prompt: string })?.prompt || ""}
-                      {'"'}
+                      <p className="block translate-x-5">
+                        {part.state === "output-available"
+                          ? "Asked gork"
+                          : "Asking gork"}
+                        {' "'}
+                        {(part.input as { prompt: string })?.prompt || ""}
+                        {'"'}
+                      </p>
                     </motion.div>
                   );
               })}
