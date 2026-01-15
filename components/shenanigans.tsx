@@ -63,6 +63,7 @@ export default function Shenanigans() {
       function handleScroll() {
         if (Math.random() > 0.9) {
           document.body.style.paddingTop = Math.random() * 100 + "px";
+          document.body.style.paddingLeft = Math.random() * 10 + "px";
         }
       }
       document.addEventListener("scroll", handleScroll);
