@@ -52,14 +52,23 @@ function AIChat() {
                       className="border w-fit rounded-full"
                       key={index}
                     >
-                      <p className="block translate-x-5 p-0 m-0">
-                        {part.state !== "output-available" && <Spinner />}
-                        {(part.input as { loading: string })?.loading}
+                      <details>
+                        <summary>
+                          <p className="block translate-x-5 p-0 m-0">
+                            {part.state !== "output-available" && <Spinner />}
+                            {(part.input as { loading: string })?.loading}
+                            <br />
+                            {(part.state === "output-available" &&
+                              (part.input as { complete: string })?.complete) ||
+                              ""}
+                          </p>
+                        </summary>
+                        Prompt: {(part.input as { prompt: string })?.prompt}
                         <br />
-                        {(part.state === "output-available" &&
-                          (part.input as { complete: string })?.complete) ||
-                          ""}
-                      </p>
+                        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
+                        {/* @ts-ignore */}
+                        {part.output && part.output[0].text}
+                      </details>
                     </motion.div>
                   );
               })}
