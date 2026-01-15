@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 import * as shenanigans from "@/components/shenanigans";
+import { Spinner } from "@/components/ui/spinner";
 
 function AIChat() {
   const chat = useChat({
@@ -52,9 +53,12 @@ function AIChat() {
                       key={index}
                     >
                       <p className="block translate-x-5">
-                        {part.state === "output-available"
-                          ? (part.input as { complete: string })?.complete || ""
-                          : (part.input as { loading: string })?.loading || ""}
+                        {part.state !== "output-available" && <Spinner />}
+                        {(part.input as { loading: string })?.loading}
+                        <br />
+                        {(part.state === "output-available" &&
+                          (part.input as { complete: string })?.complete) ||
+                          ""}
                       </p>
                     </motion.div>
                   );
