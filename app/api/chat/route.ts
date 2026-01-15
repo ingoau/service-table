@@ -21,6 +21,18 @@ export async function POST(req: Request) {
         description: "Delegate to gork, the support AI",
         inputSchema: z.object({
           prompt: z.string().min(1).max(1000),
+          loading: z
+            .string()
+            .min(1)
+            .max(1000)
+            .describe(
+              "Text to show to the user while waiting for the response",
+            ),
+          complete: z
+            .string()
+            .min(1)
+            .max(1000)
+            .describe("Text to show to the user when the response is complete"),
         }),
         execute: async ({ prompt }) => {
           return (
