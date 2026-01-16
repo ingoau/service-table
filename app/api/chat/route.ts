@@ -54,7 +54,8 @@ export async function POST(req: Request) {
         }),
       },
       navigate: {
-        description: "Navigate to a URL",
+        description:
+          "Navigate to a URL. This will immediately end the conversation.",
         inputSchema: z.object({
           url: z.string().min(1).max(1000),
         }),
