@@ -14,6 +14,34 @@ const openrouter = createOpenRouter({
 export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
 
+  const ip = req.headers.get("x-forwarded-for");
+
+  const ipInfoReq = await fetch(
+    `http://ip-api.com/json/${ip === "::1" ? "" : ip}`,
+  );
+
+  const ipInfoJson = await ipInfoReq.json();
+
+  const ipInfo =
+    ipInfoJson.status === "success"
+      ? (ipInfoJson as {
+          query: string;
+          status: string;
+          country: string;
+          countryCode: string;
+          region: string;
+          regionName: string;
+          city: string;
+          zip: string;
+          lat: number;
+          lon: number;
+          timezone: string;
+          isp: string;
+          org: string;
+          as: string;
+        })
+      : {};
+
   const result = streamText({
     model: openrouter("google/gemini-3-flash-preview"),
     tools: {
