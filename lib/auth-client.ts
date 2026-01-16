@@ -7,7 +7,7 @@ export const authClient = createAuthClient({
     usernameClient(),
     {
       id: "password-endpoint",
-      $InferServerPlugin: {} as ReturnType<typeof passwordEndpoint>,
+      $InferServerPlugin: {} as typeof passwordEndpoint,
     },
   ],
 });
