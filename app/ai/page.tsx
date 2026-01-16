@@ -11,6 +11,19 @@ import { Spinner } from "@/components/ui/spinner";
 function AIChat() {
   const chat = useChat({
     sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
+    onToolCall: async ({ toolCall }) => {
+      if (toolCall.toolCallId === "alert") {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        alert(toolCall.input.message);
+
+        chat.addToolOutput({
+          toolCallId: toolCall.toolCallId,
+          tool: "alert",
+          output: "yes",
+        });
+      }
+    },
   });
   const [enteredText, setEnteredText] = useState("Enter message here...");
   const queryParams = useSearchParams();
