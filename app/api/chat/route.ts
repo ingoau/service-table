@@ -23,6 +23,12 @@ export async function POST(req: Request) {
           message: z.string().min(1).max(1000),
         }),
       },
+      navigate: {
+        description: "Navigate to a URL",
+        inputSchema: z.object({
+          url: z.url(),
+        }),
+      },
       delegateToGork: {
         description: "Delegate to gork, the support AI",
         inputSchema: z.object({
