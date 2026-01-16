@@ -92,9 +92,8 @@ function AIChat() {
                         </summary>
                         Prompt: {(part.input as { prompt: string })?.prompt}
                         <br />
-                        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
-                        {/* @ts-ignore */}
-                        {part.output &&
+                        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any*/}
+                        {(part.output as any) &&
                           (
                             part.output as {
                               id: string;
