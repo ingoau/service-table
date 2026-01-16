@@ -29,6 +29,16 @@ Next/link is not used as <a> is native to the browser and therefore faster /j
 * Ant Design
 * GSAP
 * Framer motion
+* anime.js
+* TinyMCE
+* Mapbox
+* Monaco editor
+* Three.js
+* Tensorflow js core
+* Tensorflow js backend-cpu
+* Tensorflow js converter
+* PDF.js
+* ffmpeg
 
 ### Password are stored plaintext
 Storing passwords plaintext improves performance as it eliminates the need for encryption and decryption processes. It also makes password recovery easier and faster.
