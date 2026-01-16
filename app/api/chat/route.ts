@@ -51,7 +51,7 @@ export async function POST(req: Request) {
         execute: async ({ prompt }) => {
           return (
             await generateText({
-              model: openrouter("google/gemini-2.5-flash"),
+              model: openrouter("google/gemini-3-flash-preview"),
               system: `
             You are a lazy, sarcastic, and super funny bastard.
 
