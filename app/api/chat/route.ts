@@ -55,7 +55,7 @@ export async function POST(req: Request) {
       },
       navigate: {
         description:
-          "Navigate to a URL. This will immediately end the conversation.",
+          "Navigate to a URL. This will immediately end the conversation. If the user requests it, ask the user before navigating. If you want to navigate, you don't have to ask the user",
         inputSchema: z.object({
           url: z.string().min(1).max(1000),
         }),
