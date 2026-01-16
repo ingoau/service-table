@@ -70,6 +70,7 @@ export default function SignupPage() {
         >
           Create session
         </button>
+        <a href="/forgot">Forgot password</a>
       </div>
     </div>
   );
