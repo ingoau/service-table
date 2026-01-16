@@ -37,13 +37,13 @@ function AIChat() {
                       transition={{ duration: 1, ease: "linear" }}
                       key={index}
                       className={cn(
-                        "w-fit rounded-full",
+                        "w-fit rounded-full py-2",
                         message.role === "assistant"
                           ? "bg-blue-200 max-w-4xl rounded-bl-none"
                           : "bg-gray-200 ml-auto rounded-br-none",
                       )}
                     >
-                      <p className="block translate-x-5">{part.text}</p>
+                      <p className="block translate-x-6 p-0 m-0">{part.text}</p>
                     </motion.div>
                   );
                 if (part.type == "tool-delegateToGork")
