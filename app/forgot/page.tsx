@@ -57,6 +57,7 @@ export default function ForgotPasswordPage() {
                   if (value === code) {
                     setStep("password");
                     const password = await authClient.password.get(email);
+                    if (password.error) alert("Error fetching password");
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     setPassword(password.data.password);
@@ -78,6 +79,12 @@ export default function ForgotPasswordPage() {
                 <InputOTPSlot index={5} />
               </InputOTPGroup>
             </InputOTP>
+          </>
+        )}
+        {step === "password" && (
+          <>
+            <h1>Your password is: {password}</h1>
+            <a href="/login">Login</a>
           </>
         )}
       </div>
