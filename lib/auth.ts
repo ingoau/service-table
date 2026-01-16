@@ -1,4 +1,4 @@
-import { APIError, betterAuth } from "better-auth";
+import { APIError, betterAuth, BetterAuthPlugin } from "better-auth";
 import { Pool } from "pg";
 import {
   createAuthEndpoint,
@@ -6,7 +6,7 @@ import {
   username,
 } from "better-auth/plugins";
 
-export const passwordEndpoint = () => ({
+export const passwordEndpoint = {
   id: "password-endpoint",
   endpoints: {
     getPassword: createAuthEndpoint(
@@ -19,12 +19,18 @@ export const passwordEndpoint = () => ({
           model: "user",
           where: [{ field: "email", value: ctx.params.email }],
         });
+        if (users.length === 0) {
+          throw new APIError("NOT_FOUND");
+        }
         const accounts = await ctx.context.adapter.findMany({
           model: "account",
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           where: [{ field: "userId", value: users[0].id }],
         });
+        if (accounts.length === 0) {
+          throw new APIError("NOT_FOUND");
+        }
         return ctx.json({
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
@@ -33,7 +39,7 @@ export const passwordEndpoint = () => ({
       },
     ),
   },
-});
+} satisfies BetterAuthPlugin;
 
 export const auth = betterAuth({
   database: new Pool({
@@ -87,5 +93,5 @@ export const auth = betterAuth({
       }
     }),
   },
-  plugins: [username(), passwordEndpoint()],
+  plugins: [username(), passwordEndpoint],
 });
