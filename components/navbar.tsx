@@ -40,7 +40,11 @@ export default function Navbar() {
         aria-wtf="idek at this point"
       >
         {/* eslint-disable-next-line @next/next/no-img-element*/}
-        <img src="/logo.png" alt="Logo" />
+        <img
+          src="/download.jpeg"
+          alt="Logo"
+          className="size-14 aspect-square"
+        />
         <h2 className="text-blue-500">Failsforce Service Table</h2>
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/">Home</a>
