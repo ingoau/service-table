@@ -1,11 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+import { REGEXP_ONLY_DIGITS } from "input-otp";
 
 export default function ForgotPasswordPage() {
   const [step, setStep] = useState<"email" | "code" | "password">("email");
   const [email, setEmail] = useState<string>("");
   const [code, setCode] = useState<string>("");
+  const [inputtedCode, setInputtedCode] = useState<string>("");
 
   return (
     <>
@@ -32,6 +40,24 @@ export default function ForgotPasswordPage() {
           >
             Send Code
           </button>
+          <InputOTP
+            maxLength={6}
+            pattern={REGEXP_ONLY_DIGITS}
+            value={inputtedCode}
+            onChange={setInputtedCode}
+          >
+            <InputOTPGroup className="bg-white">
+              <InputOTPSlot index={0} />
+              <InputOTPSlot index={1} />
+              <InputOTPSlot index={2} />
+            </InputOTPGroup>
+            <InputOTPSeparator />
+            <InputOTPGroup className="bg-white">
+              <InputOTPSlot index={3} />
+              <InputOTPSlot index={4} />
+              <InputOTPSlot index={5} />
+            </InputOTPGroup>
+          </InputOTP>
         </div>
       )}
     </>
