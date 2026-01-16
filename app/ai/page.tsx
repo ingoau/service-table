@@ -24,6 +24,17 @@ function AIChat() {
           output: "yes",
         });
       }
+      if (toolCall.toolName === "navigate") {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.open(toolCall.input.url, "_self");
+
+        chat.addToolOutput({
+          toolCallId: toolCall.toolCallId,
+          tool: "navigate",
+          output: "yes",
+        });
+      }
     },
   });
   const [enteredText, setEnteredText] = useState("Enter message here...");
