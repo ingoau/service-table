@@ -8,11 +8,13 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
+import { authClient } from "@/lib/auth-client";
 
 export default function ForgotPasswordPage() {
   const [step, setStep] = useState<"email" | "code" | "password">("email");
   const [email, setEmail] = useState<string>("");
   const [code, setCode] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   return (
     <>
@@ -49,10 +51,15 @@ export default function ForgotPasswordPage() {
             <InputOTP
               maxLength={6}
               pattern={REGEXP_ONLY_DIGITS}
-              onChange={(value) => {
+              onChange={async (value) => {
                 if (value.length === 6) {
+                  await authClient.password.get(email);
                   if (value === code) {
                     setStep("password");
+                    const password = await authClient.password.get(email);
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    setPassword(password.data.password);
                   } else {
                     alert("Invalid code");
                   }
