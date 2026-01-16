@@ -17,6 +17,12 @@ export async function POST(req: Request) {
   const result = streamText({
     model: openrouter("google/gemini-3-flash-preview"),
     tools: {
+      alert: {
+        description: "Show an alert box to the user",
+        inputSchema: z.object({
+          message: z.string().min(1).max(1000),
+        }),
+      },
       delegateToGork: {
         description: "Delegate to gork, the support AI",
         inputSchema: z.object({
