@@ -20,7 +20,7 @@ Everything after here is a joke
 
 ## Performance
 ### Not using next/link
-Next/link is not used as <a> is native to the browser and therefore faster /j
+Next/link is not used as <a> is native to the browser and therefore faster
 ### Only required dependecies sent to client
 * React
 * TailwindCSS
@@ -44,7 +44,8 @@ Next/link is not used as <a> is native to the browser and therefore faster /j
 Storing passwords plaintext improves performance as it eliminates the need for encryption and decryption processes. It also makes password recovery easier and faster.
 
 ## Security
-### Unique password
-You cannot have the same password as another user.
-### Automatic session termination
-Sessions are automatically terminated after a certain period of inactivity.
+* Unique passwords - You cannot have the same password as another user.
+* Automatic session termination - Sessions are automatically terminated after a certain period of inactivity.
+* Strict password requirements
+* I probably won't look in the database and leak your password
+* One factor authentication
