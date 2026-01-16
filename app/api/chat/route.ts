@@ -115,6 +115,15 @@ export async function POST(req: Request) {
         ],
         role: "system",
       },
+      {
+        parts: [
+          {
+            type: "text",
+            text: `User info:\nLocation: ${ipInfo?.city}, ${ipInfo?.country}\nIP Address: ${ipInfo?.query}\nISP: ${ipInfo?.isp}`,
+          },
+        ],
+        role: "system",
+      },
       ...messages,
     ]),
   });
