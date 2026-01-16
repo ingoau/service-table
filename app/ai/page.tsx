@@ -12,7 +12,8 @@ function AIChat() {
   const chat = useChat({
     sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
     onToolCall: async ({ toolCall }) => {
-      if (toolCall.toolCallId === "alert") {
+      console.log(toolCall);
+      if (toolCall.toolName === "alert") {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         alert(toolCall.input.message);
