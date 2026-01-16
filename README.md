@@ -1,6 +1,19 @@
 # Service Table
 This is a joke service desk webapp, made to be very not user friendly
 
+## How to get the most out of this
+* Try the AI—ask it a support question or something
+* Consult the AI about how it really feels about gork
+* Consult the AI about existence
+* Create an account (I seriously won't sell your data, and it's just stored in a Neon DB and not sent anywhere else)
+* Try using the password `Gork123!` (which is my password) to sign up for an account
+* Do a password reset (you can use `me@ingo.au`)
+* Submit feedback (ok fine you cant)
+* Try and create a ticket
+* Look at the resources
+* Try dark mode
+* Sign out
+
 Everything after here is a joke
 
 ---END JOKE EXPLAINATION---
@@ -21,7 +34,7 @@ Everything after here is a joke
 ## Performance
 ### Not using next/link
 Next/link is not used as <a> is native to the browser and therefore faster
-### Only required dependecies sent to client
+### Only required dependencies sent to client
 * React
 * TailwindCSS
 * Emotion
