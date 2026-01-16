@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function ForgotPasswordPage() {
   const [step, setStep] = useState<"email" | "code" | "password">("email");
+  const [code, setCode] = useState<string>("");
 
   return (
     <>
