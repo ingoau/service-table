@@ -13,7 +13,6 @@ export default function ForgotPasswordPage() {
   const [step, setStep] = useState<"email" | "code" | "password">("email");
   const [email, setEmail] = useState<string>("");
   const [code, setCode] = useState<string>("");
-  const [inputtedCode, setInputtedCode] = useState<string>("");
 
   return (
     <>
@@ -50,8 +49,15 @@ export default function ForgotPasswordPage() {
             <InputOTP
               maxLength={6}
               pattern={REGEXP_ONLY_DIGITS}
-              value={inputtedCode}
-              onChange={setInputtedCode}
+              onChange={(value) => {
+                if (value.length === 6) {
+                  if (value === code) {
+                    setStep("password");
+                  } else {
+                    alert("Invalid code");
+                  }
+                }
+              }}
             >
               <InputOTPGroup className="bg-white">
                 <InputOTPSlot index={0} />
