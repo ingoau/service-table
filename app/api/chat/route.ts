@@ -73,8 +73,6 @@ export async function POST(req: Request) {
             })
           ).content;
 
-          console.log(gorkResponse);
-
           return gorkResponse;
         },
       },
