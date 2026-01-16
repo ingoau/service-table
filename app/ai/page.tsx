@@ -92,7 +92,24 @@ function AIChat() {
                         <br />
                         {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
                         {/* @ts-ignore */}
-                        {part.output && part.output[0].text}
+                        {part.output &&
+                          (
+                            part.output as {
+                              id: string;
+                              text: string;
+                              type: string;
+                            }[]
+                          ).map(
+                            (output: {
+                              id: string;
+                              text: string;
+                              type: string;
+                            }) => {
+                              if (output.type === "text") {
+                                return <p key={output.id}>{output.text}</p>;
+                              }
+                            },
+                          )}
                       </details>
                     </motion.div>
                   );
@@ -119,6 +136,7 @@ function AIChat() {
           Send
         </button>
       </div>
+      {JSON.stringify(chat.messages)}
     </div>
   );
 }

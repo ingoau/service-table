@@ -49,7 +49,7 @@ export async function POST(req: Request) {
             ),
         }),
         execute: async ({ prompt }) => {
-          return (
+          const gorkResponse = (
             await generateText({
               model: openrouter("google/gemini-3-flash-preview"),
               system: `
@@ -72,6 +72,10 @@ export async function POST(req: Request) {
               prompt: prompt,
             })
           ).content;
+
+          console.log(gorkResponse);
+
+          return gorkResponse;
         },
       },
     },
