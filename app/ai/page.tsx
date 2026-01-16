@@ -137,7 +137,6 @@ function AIChat() {
           Send
         </button>
       </div>
-      {JSON.stringify(chat.messages)}
     </div>
   );
 }
