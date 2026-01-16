@@ -68,7 +68,9 @@ function AIChat() {
                           : "bg-gray-200 ml-auto rounded-br-none",
                       )}
                     >
-                      <p className="block translate-x-6 p-0 m-0">{part.text}</p>
+                      <p className="block translate-x-6 p-0 m-0 whitespace-pre-line">
+                        {part.text}
+                      </p>
                     </motion.div>
                   );
                 if (part.type == "tool-delegateToGork")
