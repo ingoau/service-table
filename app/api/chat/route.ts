@@ -40,7 +40,7 @@ export async function POST(req: Request) {
           org: string;
           as: string;
         })
-      : {};
+      : null;
 
   const result = streamText({
     model: openrouter("google/gemini-3-flash-preview"),
