@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       navigate: {
         description: "Navigate to a URL",
         inputSchema: z.object({
-          url: z.url(),
+          url: z.string().min(1).max(1000),
         }),
       },
       delegateToGork: {
