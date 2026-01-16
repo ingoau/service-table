@@ -42,6 +42,8 @@ export async function POST(req: Request) {
         })
       : null;
 
+  const userAgent = req.headers.get("user-agent");
+
   const result = streamText({
     model: openrouter("google/gemini-3-flash-preview"),
     tools: {
@@ -119,7 +121,7 @@ export async function POST(req: Request) {
         parts: [
           {
             type: "text",
-            text: `User info:\nLocation: ${ipInfo?.city}, ${ipInfo?.country}\nIP Address: ${ipInfo?.query}\nISP: ${ipInfo?.isp}`,
+            text: `User info:\nLocation: ${ipInfo?.city}, ${ipInfo?.country}\nIP Address: ${ipInfo?.query}\nISP: ${ipInfo?.isp}\nUser Agent: ${userAgent}`,
           },
         ],
         role: "system",
