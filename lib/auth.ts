@@ -1,6 +1,10 @@
 import { APIError, betterAuth } from "better-auth";
 import { Pool } from "pg";
-import { createAuthMiddleware, username } from "better-auth/plugins";
+import {
+  createAuthEndpoint,
+  createAuthMiddleware,
+  username,
+} from "better-auth/plugins";
 
 export const auth = betterAuth({
   database: new Pool({
@@ -54,5 +58,36 @@ export const auth = betterAuth({
       }
     }),
   },
-  plugins: [username()],
+  plugins: [
+    username(),
+
+    {
+      id: "password-endpoint",
+      endpoints: {
+        getPassword: createAuthEndpoint(
+          "/password/get/:email",
+          {
+            method: "GET",
+          },
+          async (ctx) => {
+            const users = await ctx.context.adapter.findMany({
+              model: "user",
+              where: [{ field: "email", value: ctx.params.email }],
+            });
+            const accounts = await ctx.context.adapter.findMany({
+              model: "account",
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              where: [{ field: "userId", value: users[0].id }],
+            });
+            return ctx.json({
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              password: accounts[0].password,
+            });
+          },
+        ),
+      },
+    },
+  ],
 });
