@@ -17,7 +17,9 @@ export const passwordEndpoint = {
       async (ctx) => {
         const users = await ctx.context.adapter.findMany({
           model: "user",
-          where: [{ field: "email", value: ctx.params.email }],
+          where: [
+            { field: "email", value: decodeURIComponent(ctx.params.email) },
+          ],
         });
         if (users.length === 0) {
           throw new APIError("NOT_FOUND");
