@@ -20,46 +20,54 @@ export default function ForgotPasswordPage() {
       <div className="w-24 mx-auto">
         <h1 className="wrap-anywhere">Forget password</h1>
       </div>
-      {step === "email" && (
-        <div className="w-full max-w-2xl mx-auto p-8">
-          Input your email in the following field:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button
-            className="p-2 px-4 rounded-full from-background to-foreground/50 bg-linear-to-b"
-            onClick={() => {
-              const randomCode = Math.floor(
-                100000 + Math.random() * 900000,
-              ).toString();
-              setCode(randomCode);
-              setStep("code");
-            }}
-          >
-            Send Code
-          </button>
-          <InputOTP
-            maxLength={6}
-            pattern={REGEXP_ONLY_DIGITS}
-            value={inputtedCode}
-            onChange={setInputtedCode}
-          >
-            <InputOTPGroup className="bg-white">
-              <InputOTPSlot index={0} />
-              <InputOTPSlot index={1} />
-              <InputOTPSlot index={2} />
-            </InputOTPGroup>
-            <InputOTPSeparator />
-            <InputOTPGroup className="bg-white">
-              <InputOTPSlot index={3} />
-              <InputOTPSlot index={4} />
-              <InputOTPSlot index={5} />
-            </InputOTPGroup>
-          </InputOTP>
-        </div>
-      )}
+      <div className="w-full max-w-2xl mx-auto p-8">
+        {step === "email" && (
+          <>
+            Input your email in the following field:
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button
+              className="p-2 px-4 rounded-full from-background to-foreground/50 bg-linear-to-b"
+              onClick={() => {
+                const randomCode = Math.floor(
+                  100000 + Math.random() * 900000,
+                ).toString();
+                setCode(randomCode);
+                setStep("code");
+              }}
+            >
+              Send Code
+            </button>
+          </>
+        )}
+        {step === "code" && (
+          <>
+            We sent the code {code} to {email}. To verify you control this
+            email, please enter the code below:
+            <InputOTP
+              maxLength={6}
+              pattern={REGEXP_ONLY_DIGITS}
+              value={inputtedCode}
+              onChange={setInputtedCode}
+            >
+              <InputOTPGroup className="bg-white">
+                <InputOTPSlot index={0} />
+                <InputOTPSlot index={1} />
+                <InputOTPSlot index={2} />
+              </InputOTPGroup>
+              <InputOTPSeparator />
+              <InputOTPGroup className="bg-white">
+                <InputOTPSlot index={3} />
+                <InputOTPSlot index={4} />
+                <InputOTPSlot index={5} />
+              </InputOTPGroup>
+            </InputOTP>
+          </>
+        )}
+      </div>
     </>
   );
 }
