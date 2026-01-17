@@ -4,7 +4,12 @@ import { motion } from "motion/react";
 
 export default function Newsletter() {
   return (
-    <motion.div className="fixed bottom-0 right-0 bg-white p-5 z-100 max-w-xl">
+    <motion.div
+      initial={{ x: 800 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 10, delay: 5, ease: "linear" }}
+      className="fixed bottom-0 right-0 bg-white p-5 z-100 max-w-xl"
+    >
       <h1>Subscribe to our newsletter</h1>
       <p>
         Tired of the internet yelling at you 24/7? 😅 Let us do the digging and
@@ -17,6 +22,10 @@ export default function Newsletter() {
         schedule, with a one-click escape hatch anytime 🧼✨ Hit subscribe and
         come hang out 😄🎉
       </p>
+      <input
+        type="text"
+        placeholder="Enter your Email Address in this text field"
+      />
       <button className="w-full text-xl p-4">Subscribe</button>
       <button className="text-sm bg-transparent border-0 outline-0">
         close
