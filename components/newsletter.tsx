@@ -1,35 +1,50 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useState } from "react";
 
 export default function Newsletter() {
-  return (
-    <motion.div
-      initial={{ x: 800 }}
-      animate={{ x: 0 }}
-      transition={{ duration: 10, delay: 5, ease: "linear" }}
-      className="fixed bottom-0 right-0 bg-white p-5 z-100 max-w-xl"
-    >
-      <h1>Subscribe to our newsletter</h1>
-      <p>
-        Tired of the internet yelling at you 24/7? 😅 Let us do the digging and
-        send you the good bits. Subscribe to our newsletter and get a fun,
-        bite-sized inbox treat 📬—packed with the most interesting updates,
-        genuinely useful tips, and the kind of behind-the-scenes stuff you’d
-        normally have to stalk three platforms to find 👀. Think: less
-        doomscrolling, more “ohhh that’s handy” 💡. No spam, no nonsense, no
-        random coupon chaos. Just a friendly note from us, delivered on
-        schedule, with a one-click escape hatch anytime 🧼✨ Hit subscribe and
-        come hang out 😄🎉
-      </p>
-      <input
-        type="text"
-        placeholder="Enter your Email Address in this text field"
-      />
-      <button className="w-full text-xl p-4">Subscribe</button>
-      <button className="text-sm bg-transparent border-0 outline-0">
-        close
-      </button>
-    </motion.div>
-  );
+  const [show, setShow] = useState(true);
+  if (show)
+    return (
+      <motion.div
+        initial={{ x: 800 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 10, delay: 5, ease: "linear" }}
+        className="fixed bottom-0 right-0 bg-white p-5 z-100 max-w-xl"
+      >
+        <h1>Subscribe to our newsletter</h1>
+        <p>
+          Tired of the internet yelling at you 24/7? 😅 Let us do the digging
+          and send you the good bits. Subscribe to our newsletter and get a fun,
+          bite-sized inbox treat 📬—packed with the most interesting updates,
+          genuinely useful tips, and the kind of behind-the-scenes stuff you’d
+          normally have to stalk three platforms to find 👀. Think: less
+          doomscrolling, more “ohhh that’s handy” 💡. No spam, no nonsense, no
+          random coupon chaos. Just a friendly note from us, delivered on
+          schedule, with a one-click escape hatch anytime 🧼✨ Hit subscribe and
+          come hang out 😄🎉
+        </p>
+        <input
+          type="text"
+          placeholder="Enter your Email Address in this text field"
+        />
+        <button
+          className="w-full text-xl p-4"
+          onClick={() => {
+            alert("Something went wrong");
+            setShow(false);
+          }}
+        >
+          Subscribe
+        </button>
+        <button
+          className="text-sm bg-transparent border-0 outline-0"
+          onClick={() => setShow(false)}
+        >
+          close
+        </button>
+      </motion.div>
+    );
+  if (!show) return null;
 }
