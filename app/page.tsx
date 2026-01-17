@@ -24,7 +24,6 @@ export default function Home() {
       transition={{ duration: 2, ease: "linear" }}
     >
       <HeroDiv>
-        <Loading />
         <h1>Welcome to Service Table</h1>
         <h1>How can we help you</h1>
         <SearchBox />
