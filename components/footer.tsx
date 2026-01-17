@@ -82,13 +82,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div>
-        {Array(100000)
-          .fill(null)
-          .map((_, index) => (
-            <div key={index}></div>
-          ))}
-      </div>
     </footer>
   );
 }
