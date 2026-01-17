@@ -11,7 +11,7 @@ export default function Newsletter() {
         initial={{ x: 800 }}
         animate={{ x: 0 }}
         transition={{ duration: 10, delay: 5, ease: "linear" }}
-        className="fixed bottom-0 right-0 bg-white p-5 z-100 max-w-xl"
+        className="fixed bottom-0 right-0 bg-white p-5 z-100 max-w-xl border-20 border-black!"
       >
         <h1>Subscribe to our newsletter</h1>
         <p>
