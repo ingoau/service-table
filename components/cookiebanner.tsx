@@ -5,6 +5,9 @@ import { useState } from "react";
 
 export default function CookieBanner() {
   const [isManagingPreferences, setIsManagingPreferences] = useState(false);
+  const [showDialog, setShowDialog] = useState(true);
+  if (!showDialog) return null;
+
   const cookieTypes = [
     "Session ID (keep your visit stateful while you browse)",
     "Anonymous session ID (pre-login session tracking)",
@@ -247,7 +250,12 @@ export default function CookieBanner() {
       <br />
       {!isManagingPreferences && (
         <>
-          <button className="p-10 text-4xl">Agree</button>
+          <button
+            className="p-10 text-4xl"
+            onClick={() => setShowDialog(false)}
+          >
+            Agree
+          </button>
           <button
             className="text-xs bg-transparent border-0 outline-0"
             onClick={() => setIsManagingPreferences(true)}
