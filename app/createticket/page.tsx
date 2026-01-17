@@ -110,6 +110,23 @@ export default function CreateTicketPage() {
 
     if (errors.length > 0) {
       alert("Please fix the following errors:\n\n" + errors.join("\n"));
+      setName("");
+      setEmail("");
+      setFruit("");
+      setContactReason("");
+      setMessage("");
+      setPhoneNumber("");
+      setHowHeard("");
+      setAddress("");
+      setDateOfBirth("");
+      setYearOfBirth("");
+      setReferenceNumber("");
+      setOrderId("");
+      setPreferredContact("");
+      setSerialNumber("");
+      setMoreDetails("");
+      setEvenMoreDetails("");
+
       return;
     }
 
