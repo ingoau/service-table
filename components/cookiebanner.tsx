@@ -244,7 +244,12 @@ export default function CookieBanner() {
     "Terms update acknowledgement marker (rare)",
   ];
   return (
-    <motion.div className="bg-red-500 p-10">
+    <motion.div
+      className="bg-red-500 p-10"
+      initial={{ y: -1000 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 3, ease: "linear" }}
+    >
       <h1>We use cookies to improve your experience!</h1>
       Your privacy is our priority, so it is your choice to agree or decline.
       <br />
