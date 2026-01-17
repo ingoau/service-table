@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
       </div>
       <div>
-        {Array(10000)
+        {Array(100000)
           .fill(null)
           .map((_, index) => (
             <div key={index}></div>
