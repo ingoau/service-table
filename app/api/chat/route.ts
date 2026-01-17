@@ -6,6 +6,7 @@ import {
 } from "ai";
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { z } from "zod/v4";
+import { auth } from "@/lib/auth";
 
 const openrouter = createOpenRouter({
   apiKey: process.env.OR_API_KEY,
@@ -13,6 +14,8 @@ const openrouter = createOpenRouter({
 
 export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
+
+  const session = await auth.api.getSession({ headers: req.headers });
 
   const ip = req.headers.get("x-forwarded-for");
 
@@ -123,6 +126,17 @@ export async function POST(req: Request) {
           {
             type: "text",
             text: `User info:\nLocation: ${ipInfo?.city}, ${ipInfo?.country}\nIP Address: ${ipInfo?.query}\nISP: ${ipInfo?.isp}\nUser Agent: ${userAgent}`,
+          },
+        ],
+        role: "system",
+      },
+      {
+        parts: [
+          {
+            type: "text",
+            text: session?.user
+              ? `The user is logged in\nEmail: ${session.user.email}\nUsername: ${session.user.username}`
+              : `The user is not logged in`,
           },
         ],
         role: "system",
