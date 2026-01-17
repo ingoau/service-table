@@ -52,7 +52,6 @@ export default function RootLayout({
         >
           <Shenanigans />
           <SessionTerminator />
-          <Navbar />
           <Fab
             variant="extended"
             className="fixed! bottom-3 left-2"
@@ -61,9 +60,12 @@ export default function RootLayout({
             Submit ticket <AIButton text="with ai" />
           </Fab>
           <AIButton className="fixed! bottom-0 right-0" />
-          {children}
+          <div className="main">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
           <TitleSetter />
-          <Footer />
         </ThemeProvider>
       </body>
     </html>
