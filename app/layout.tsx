@@ -53,7 +53,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div>
-            {Array(100000)
+            {Array(10000)
               .fill(null)
               .map((_, index) => (
                 <div key={index}></div>
