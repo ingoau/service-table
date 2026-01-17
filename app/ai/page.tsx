@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 import * as shenanigans from "@/components/shenanigans";
 import { Spinner } from "@/components/ui/spinner";
+import Loading from "@/components/loading";
 
 function AIChat() {
   const chat = useChat({
@@ -143,7 +144,13 @@ function AIChat() {
 
 export default function Page() {
   return (
-    <Suspense fallback={<div className="p-4">Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="p-4">
+          <Loading />
+        </div>
+      }
+    >
       <AIChat />
     </Suspense>
   );

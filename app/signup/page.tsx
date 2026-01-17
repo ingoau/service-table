@@ -1,6 +1,7 @@
 "use client";
 
 import { AIButton } from "@/components/ai-button";
+import Loading from "@/components/loading";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -13,7 +14,11 @@ export default function SignupPage() {
   const [loading, setLoading] = useState(false);
 
   if (loading) {
-    return <>loading</>;
+    return (
+      <>
+        <Loading />
+      </>
+    );
   }
 
   const passwordRequirements: {
