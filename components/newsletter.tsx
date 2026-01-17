@@ -40,7 +40,12 @@ export default function Newsletter() {
         </button>
         <button
           className="text-sm bg-transparent border-0 outline-0"
-          onClick={() => setShow(false)}
+          onClick={() => {
+            setShow(false);
+            setTimeout(() => {
+              setShow(true);
+            }, 1000);
+          }}
         >
           close
         </button>
