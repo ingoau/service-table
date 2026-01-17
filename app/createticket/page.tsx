@@ -115,10 +115,10 @@ export default function CreateTicketPage() {
       setFruit("");
       setContactReason("");
       setMessage("");
-      setPhoneNumber("");
+      setPhoneNumber([0]);
       setHowHeard("");
       setAddress("");
-      setDateOfBirth("");
+      setDateOfBirth(new Date());
       setYearOfBirth("");
       setReferenceNumber("");
       setOrderId("");
