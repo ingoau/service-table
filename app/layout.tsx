@@ -65,6 +65,8 @@ export default function RootLayout({
           <Newsletter />
           <div className="main">
             <CookieBanner />
+            {/* eslint-disable-next-line @next/next/no-img-element*/}
+            <img className="pb-10" src="promo.png" alt="Promotional banner" />
             <Navbar />
             {children}
             <Footer />
