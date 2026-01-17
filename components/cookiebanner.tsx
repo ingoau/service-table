@@ -265,20 +265,40 @@ export default function CookieBanner() {
         </>
       )}
       {isManagingPreferences && (
-        <div className="flex flex-col gap-1">
-          {cookieTypes.map((type, index) => (
-            <div key={index} className="border p-2 max-w-fit">
-              <input
-                type="checkbox"
-                id={`cookie-${index}`}
-                defaultChecked={true}
-              />
-              <label htmlFor={`cookie-${index}`} className="text-xs">
-                {type}
-              </label>
-            </div>
-          ))}
-        </div>
+        <>
+          <button
+            className="p-10 text-4xl sticky top-0 z-100"
+            onClick={() => setShowDialog(false)}
+          >
+            Agree to all
+          </button>
+          <div className="flex flex-col gap-1">
+            {cookieTypes.map((type, index) => (
+              <div key={index} className="border p-2 max-w-fit">
+                <input
+                  type="checkbox"
+                  id={`cookie-${index}`}
+                  defaultChecked={true}
+                />
+                <label htmlFor={`cookie-${index}`} className="text-xs">
+                  {type}
+                </label>
+              </div>
+            ))}
+            <button
+              className="p-10 text-4xl "
+              onClick={() => setShowDialog(false)}
+            >
+              Agree to all
+            </button>
+            <button
+              className="text-sm w-fit bg-transparent border-0 outline-0"
+              onClick={() => setShowDialog(false)}
+            >
+              Save preferences
+            </button>
+          </div>
+        </>
       )}
     </motion.div>
   );
