@@ -9,6 +9,9 @@ export default function CookieBanner() {
       Your privacy is our priority, so it is your choice to agree or decline.
       <br />
       <button className="p-10 text-4xl">Agree</button>
+      <button className="text-xs bg-transparent border-0 outline-0">
+        Manage preferences
+      </button>
     </motion.div>
   );
 }
