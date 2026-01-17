@@ -11,6 +11,7 @@ import Shenanigans from "@/components/shenanigans";
 import SessionTerminator from "@/components/session-terminator";
 import Script from "next/script";
 import CookieBanner from "@/components/cookiebanner";
+import Newsletter from "@/components/newsletter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,7 @@ export default function RootLayout({
             Submit ticket <AIButton text="with ai" />
           </Fab>
           <AIButton className="fixed! bottom-0 right-0" />
+          <Newsletter />
           <div className="main">
             <CookieBanner />
             <Navbar />
