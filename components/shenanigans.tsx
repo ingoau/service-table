@@ -17,7 +17,7 @@ export default function Shenanigans() {
   useEffect(() => {
     if (ENABLE) {
       const start = performance.now();
-      while (performance.now() - start < 3000) {
+      while (performance.now() - start < 5000) {
         // quite litterally do nothing
       }
     }
