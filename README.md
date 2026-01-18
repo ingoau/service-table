@@ -29,7 +29,6 @@ Everything after here is a joke
 * AI
 * Random pointer locking
 * Optimised text entry
-* Automated reloading every now and then
 
 ## Performance
 ### Not using next/link
