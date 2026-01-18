@@ -14,6 +14,13 @@ This is a joke service desk webapp, made to be very not user friendly
 * Try dark mode
 * Sign out
 
+## AI Usage
+I used AI to generate AI looking text. This is intentional, because part of the bad UI theme of this project is about how companies just write stuff with AI.
+
+All AI generated content is marked with a comment block.
+
+Also there is an AI generated button, which was created by repeatedly telling claude to "make it look better." This is the only vibe coded part of the project, and a bit of a joke about companies putting, AI into everything, no matter how outdate.
+
 Everything after here is a joke
 
 ---END JOKE EXPLAINATION---
