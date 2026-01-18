@@ -48,15 +48,15 @@ export default function Shenanigans() {
     }
   }, []);
 
-  useEffect(() => {
-    if (ENABLE) {
-      setInterval(() => {
-        if (Math.random() > 0.99) {
-          location.reload();
-        }
-      }, 1000);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (ENABLE) {
+  //     setInterval(() => {
+  //       if (Math.random() > 0.99) {
+  //         location.reload();
+  //       }
+  //     }, 1000);
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (ENABLE) {
