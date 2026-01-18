@@ -43,6 +43,7 @@ export default function Home() {
             <Bot /> Transitioning to AI based support
             <Bot />
           </h1>
+          {/*Start AI generated*/}
           We’re moving to an AI-first approach for documentation and support.
           🤖✨ That means you’ll see smarter, faster help options built right
           into our docs—so you can get answers, troubleshooting steps, and
@@ -51,9 +52,11 @@ export default function Home() {
           human when needed. 🙋♂️✅ The goal is simple: quicker resolutions,
           more consistent answers, and better self-serve support—without losing
           access to the team when it matters.
+          {/*End AI generated*/}
         </div>
         <div className="w-screen p-4 bg-blue-100 rounded-full">
           <h1>🔒 New security protocols</h1>
+          {/*Start AI generated*/}
           Security upgrade incoming! 🔐✨ We’ve tightened our password
           requirements, so the next time you sign in or change your password,
           you’ll need to meet the new (stronger) rules. 💪 We’ve also made
@@ -61,23 +64,27 @@ export default function Home() {
           another user in the system. 🚫🔁 Accounts that don’t meet these
           requirements will be banned. ⛔ If you need help updating your
           password, please contact Support. 🆘
+          {/*End AI generated*/}
         </div>
         <div className="w-screen p-4 bg-blue-100 rounded-full">
           <h1>
             <Moon />
             Dark mode is here
           </h1>
+          {/*Start AI generated*/}
           Good news: Dark Mode has arrived! 🌙✨ You can now switch to a sleek,
           low-glare theme that’s easier on the eyes—especially at night 🖤👀. To
           turn it on, head to Settings and toggle Dark Mode (and if your device
           supports it, you may be able to match your system theme too) ⚙️. Try
           it out and tell us what you think! 🚀
+          {/*End AI generated*/}
         </div>
       </div>
       <h1>About</h1>
       <h2>Support for Failsforce Service Table</h2>
 
       <div className="w-screen p-4 bg-blue-100 rounded-full relative z-10">
+        {/*Start AI generated*/}
         <p>
           Welcome to the Failsforce Service Table support site—your central
           place for help, guidance, and practical answers for using the platform
@@ -181,6 +188,7 @@ export default function Home() {
           instead, and any error text). The more specific you are, the faster we
           can help you get to a reliable solution.
         </p>
+        {/*End AI generated*/}
       </div>
     </motion.div>
   );

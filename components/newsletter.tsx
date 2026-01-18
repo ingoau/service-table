@@ -15,6 +15,7 @@ export default function Newsletter() {
       >
         <h1>Subscribe to our newsletter</h1>
         <p>
+          {/*Start AI generated*/}
           Tired of the internet yelling at you 24/7? 😅 Let us do the digging
           and send you the good bits. Subscribe to our newsletter and get a fun,
           bite-sized inbox treat 📬—packed with the most interesting updates,
@@ -24,6 +25,7 @@ export default function Newsletter() {
           random coupon chaos. Just a friendly note from us, delivered on
           schedule, with a one-click escape hatch anytime 🧼✨ Hit subscribe and
           come hang out 😄🎉
+          {/*End AI generated*/}
         </p>
         <input
           type="text"

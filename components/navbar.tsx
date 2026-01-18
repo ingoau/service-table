@@ -148,6 +148,7 @@ export default function Navbar() {
             }}
           >
             <h1>Documentation</h1>
+            {/*Start AI generated*/}
             As of 2025, we’ve swapped traditional docs for an AI chat
             experience—because getting help shouldn’t feel like a treasure hunt
             through endless pages 🗺️📚. Instead of guessing the right search
@@ -161,6 +162,7 @@ export default function Navbar() {
             immediately, so we can fix gaps, update guidance, and make the whole
             experience smoother over time 🛠️📈. Bottom line: less searching,
             more doing 🚀😄.
+            {/*End AI generated*/}
             <AIButton />
             <button
               onClick={(e) => {
