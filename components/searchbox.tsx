@@ -27,6 +27,9 @@ export default function SearchBox({ className }: { className?: string }) {
         onKeyDown={(e) => {
           shenanigans.onKeyDown(e);
         }}
+        onPaste={(e) => {
+          e.preventDefault();
+        }}
       />
       <AIButton
         text="Search using AI"

@@ -27,6 +27,9 @@ export default function SignupPage() {
       <div className="flex flex-col w-fit p-10 mx-auto">
         Username
         <input
+          onPaste={(e) => {
+            e.preventDefault();
+          }}
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -38,6 +41,9 @@ export default function SignupPage() {
         />
         Password
         <input
+          onPaste={(e) => {
+            e.preventDefault();
+          }}
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
