@@ -2,17 +2,17 @@
 
 import { useEffect } from "react";
 
-export const ENABLE = true;
+export const ENABLE = false;
 
 export default function Shenanigans() {
-  useEffect(() => {
-    if (ENABLE) {
-      addEventListener("beforeunload", (event) => {
-        event.preventDefault();
-        return "";
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (ENABLE) {
+  //     addEventListener("beforeunload", (event) => {
+  //       event.preventDefault();
+  //       return "";
+  //     });
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (ENABLE) {
