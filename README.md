@@ -21,7 +21,7 @@ All AI generated content is marked with a comment block.
 
 Also there is an AI generated button, which was created by repeatedly telling claude to "make it look better." This is the only vibe coded part of the project, and a bit of a joke about companies putting, AI into everything, no matter how outdate.
 
-Everything after here is a joke
+## Everything after here is a joke
 
 ---END JOKE EXPLAINATION---
 
