@@ -158,7 +158,7 @@ export default function CreateTicketPage() {
             disabled={!!session.data}
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            value={!!session.data ? {} : name}
+            value={!!session.data ? "undefined" : name}
             onChange={(e) => setName(e.target.value)}
           />
           {session.data && <div>Prefilled from account</div>}
