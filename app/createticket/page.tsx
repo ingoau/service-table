@@ -144,7 +144,13 @@ export default function CreateTicketPage() {
         <h1>Create Ticket</h1>
         <button
           onClick={handleSubmit}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold fixed"
+          onMouseEnter={(event) => {
+            const rect = event.currentTarget.getBoundingClientRect();
+            const x = event.clientX - (rect.left + rect.width / 2);
+            const y = event.clientY - (rect.top + rect.height / 2);
+            console.log(`Mouse entered at (${x}, ${y})`);
+          }}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold fixed z-100 p-4"
         >
           Submit Ticket
         </button>
