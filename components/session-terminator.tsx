@@ -24,7 +24,10 @@ export default function SessionTerminator() {
   if (!session.data) return;
 
   return (
-    <div className="fixed top-20 right-0 bg-red-500 p-4 z-100">
+    <div
+      className="fixed top-20 right-0 bg-red-500 p-4 z-100 animate-pulse"
+      style={{ animationDuration: "500ms" }}
+    >
       <p>
         For your security this Session will terminate in {remainingTime} seconds
       </p>
