@@ -43,6 +43,9 @@ export default function CreateTicketPage() {
   const [moreDetails, setMoreDetails] = useState("");
   const [evenMoreDetails, setEvenMoreDetails] = useState("");
 
+  const [buttonX, setButtonX] = useState(0);
+  const [buttonY, setButtonY] = useState(0);
+
   const session = authClient.useSession();
 
   function handleSubmit() {
@@ -144,13 +147,18 @@ export default function CreateTicketPage() {
         <h1>Create Ticket</h1>
         <button
           onClick={handleSubmit}
-          onMouseEnter={(event) => {
-            const rect = event.currentTarget.getBoundingClientRect();
-            const x = event.clientX - (rect.left + rect.width / 2);
-            const y = event.clientY - (rect.top + rect.height / 2);
-            console.log(`Mouse entered at (${x}, ${y})`);
+          onMouseMove={(event) => {
+            setTimeout(() => {
+              const element = event.currentTarget;
+              const rect = element.getBoundingClientRect();
+              const x = event.clientX - (rect.left + rect.width / 2);
+              setButtonX(buttonX + (x > 0 ? -rect.width : rect.width));
+            }, 100);
           }}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold fixed z-100 p-4"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold fixed z-100000000000 p-4"
+          style={{
+            transform: `translate(${buttonX}px, ${buttonY}px)`,
+          }}
         >
           Submit Ticket
         </button>
