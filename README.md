@@ -1,5 +1,8 @@
-# Service Table
+# [Service Table](https://servicetable.ingo.au/)
+
 This is a joke service desk webapp, made to be very not user friendly
+
+# Please read through this first before you start using it
 
 ## How to get the most out of this
 * Try the AI—ask it a support question or something
@@ -68,3 +71,5 @@ Storing passwords plaintext improves performance as it eliminates the need for e
 * Strict password requirements
 * I probably won't look in the database and leak your password
 * One factor authentication
+
+# [Continue](https://servicetable.ingo.au/)
