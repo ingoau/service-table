@@ -18,6 +18,15 @@ This is a joke service desk webapp, made to be very not user friendly
 * Try dark mode
 * Sign out
 
+
+## Warnings
+* A lot of text is unreadable
+* Uses a lot of resources
+* Will request camera, mic, midi, location, screen sharing permissions—you can ignore them, they arent used
+* Password are stored plaintext—dont put anything sensetive in
+* Expect very bad ui/ux
+* Maybe Epilepsy warning (when scrolling)
+
 ## AI Usage
 I used AI to generate AI looking text. This is intentional, because part of the bad UI theme of this project is about how companies just write stuff with AI.
 
