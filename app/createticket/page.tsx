@@ -295,6 +295,8 @@ export default function CreateTicketPage() {
           onChange={(e) => setEvenMoreDetails(e.target.value)}
         />
       </div>
+      Do you need help filling out this form?{" "}
+      <a href="/createticket">Ask support</a>
     </>
   );
 }
