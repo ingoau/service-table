@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export const ENABLE = false;
+export const ENABLE = true;
 
 export default function Shenanigans() {
   // useEffect(() => {
