@@ -1,5 +1,5 @@
 # [Service Table](https://servicetable.ingo.au/)
-https://servicetable.ingo.au/
+[servicetable.ingo.au](https://servicetable.ingo.au/)
 
 This is a joke service desk webapp, made to be very not user friendly
 
