@@ -148,10 +148,11 @@ export default function CreateTicketPage() {
         <button
           onClick={handleSubmit}
           onMouseMove={(event) => {
+            const element = event.currentTarget;
+            const rect = element.getBoundingClientRect();
+            const clientX = event.clientX;
             setTimeout(() => {
-              const element = event.currentTarget;
-              const rect = element.getBoundingClientRect();
-              const x = event.clientX - (rect.left + rect.width / 2);
+              const x = clientX - (rect.left + rect.width / 2);
               setButtonX(buttonX + (x > 0 ? -rect.width : rect.width));
             }, 100);
           }}
