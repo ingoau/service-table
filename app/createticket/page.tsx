@@ -144,10 +144,11 @@ export default function CreateTicketPage() {
         <h1>Create Ticket</h1>
         <button
           onClick={handleSubmit}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold fixed"
         >
           Submit Ticket
         </button>
+        <div className="p-4"></div>
       </div>
       <div className="max-w-4xl mx-auto w-full flex flex-col gap-10">
         <div>
