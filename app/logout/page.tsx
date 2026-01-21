@@ -2,6 +2,7 @@
 
 import Error from "@/components/error";
 import { authClient } from "@/lib/auth-client";
+import posthog from "posthog-js";
 
 export default function LogoutPage() {
   const session = authClient.useSession();
@@ -20,7 +21,14 @@ export default function LogoutPage() {
   }
   return (
     <div className="flex items-center w-screen">
-      <button onClick={() => authClient.signOut()} className="p-4 mx-auto">
+      <button
+        onClick={() => {
+          posthog.capture("user_signed_out");
+          posthog.reset();
+          authClient.signOut();
+        }}
+        className="p-4 mx-auto"
+      >
         Log out
       </button>
     </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
+import posthog from "posthog-js";
 
 export default function CookieBanner() {
   const [isManagingPreferences, setIsManagingPreferences] = useState(false);
@@ -257,13 +258,21 @@ export default function CookieBanner() {
         <>
           <button
             className="p-10 text-4xl"
-            onClick={() => setShowDialog(false)}
+            onClick={() => {
+              posthog.capture("cookie_consent_given", {
+                consent_type: "all",
+              });
+              setShowDialog(false);
+            }}
           >
             Agree
           </button>
           <button
             className="text-xs bg-transparent border-0 outline-0"
-            onClick={() => setIsManagingPreferences(true)}
+            onClick={() => {
+              posthog.capture("cookie_preferences_opened");
+              setIsManagingPreferences(true);
+            }}
           >
             Manage preferences
           </button>
@@ -273,7 +282,12 @@ export default function CookieBanner() {
         <>
           <button
             className="p-10 text-4xl sticky top-0 z-100"
-            onClick={() => setShowDialog(false)}
+            onClick={() => {
+              posthog.capture("cookie_consent_given", {
+                consent_type: "all",
+              });
+              setShowDialog(false);
+            }}
           >
             Agree to all
           </button>
@@ -292,13 +306,23 @@ export default function CookieBanner() {
             ))}
             <button
               className="p-10 text-4xl "
-              onClick={() => setShowDialog(false)}
+              onClick={() => {
+                posthog.capture("cookie_consent_given", {
+                  consent_type: "all",
+                });
+                setShowDialog(false);
+              }}
             >
               Agree to all
             </button>
             <button
               className="text-sm w-fit bg-transparent border-0 outline-0"
-              onClick={() => setShowDialog(false)}
+              onClick={() => {
+                posthog.capture("cookie_consent_given", {
+                  consent_type: "custom",
+                });
+                setShowDialog(false);
+              }}
             >
               Save preferences
             </button>

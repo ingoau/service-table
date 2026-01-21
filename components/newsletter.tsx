@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
+import posthog from "posthog-js";
 
 export default function Newsletter() {
   const [show, setShow] = useState(true);
@@ -34,6 +35,7 @@ export default function Newsletter() {
         <button
           className="w-full text-xl p-4"
           onClick={() => {
+            posthog.capture("newsletter_subscribed");
             alert("Something went wrong");
             setShow(false);
           }}
@@ -43,6 +45,7 @@ export default function Newsletter() {
         <button
           className="text-sm bg-transparent border-0 outline-0"
           onClick={() => {
+            posthog.capture("newsletter_dismissed");
             setShow(false);
             setTimeout(() => {
               setShow(true);

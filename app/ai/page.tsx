@@ -8,6 +8,7 @@ import { useEffect, useState, Suspense } from "react";
 import * as shenanigans from "@/components/shenanigans";
 import { Spinner } from "@/components/ui/spinner";
 import Loading from "@/components/loading";
+import posthog from "posthog-js";
 
 function AIChat() {
   const chat = useChat({
@@ -131,6 +132,10 @@ function AIChat() {
         <button
           className="w-full"
           onClick={() => {
+            posthog.capture("ai_message_sent", {
+              message_length: enteredText.length,
+              total_messages: chat.messages.length,
+            });
             chat.sendMessage({ text: enteredText });
             setEnteredText("Enter message here...");
           }}

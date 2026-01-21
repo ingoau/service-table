@@ -5,6 +5,7 @@ import Loading from "@/components/loading";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import posthog from "posthog-js";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -73,7 +74,18 @@ export default function SignupPage() {
             setLoading(false);
             if (error) {
               alert(error.message);
+              posthog.capture("user_sign_in_failed", {
+                error_message: error.message,
+              });
             } else {
+              // Identify user in PostHog
+              posthog.identify(username, {
+                username: username,
+              });
+              // Capture successful login event
+              posthog.capture("user_signed_in", {
+                username: username,
+              });
               alert("Logged in");
               location.href = "/";
             }

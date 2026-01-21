@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import * as shenanigans from "@/components/shenanigans";
+import posthog from "posthog-js";
 import {
   FormControl,
   InputLabel,
@@ -139,6 +140,11 @@ export default function CreateTicketPage() {
       alert("Sign in required");
       location.href = "/login";
     }
+
+    posthog.capture("ticket_submission_failed", {
+      error_count: errors.length,
+      errors: errors,
+    });
   }
 
   return (

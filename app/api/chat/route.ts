@@ -7,6 +7,7 @@ import {
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { z } from "zod/v4";
 import { auth } from "@/lib/auth";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 const openrouter = createOpenRouter({
   apiKey: process.env.OR_API_KEY,
@@ -46,6 +47,24 @@ export async function POST(req: Request) {
       : null;
 
   const userAgent = req.headers.get("user-agent");
+
+  // Track AI chat request server-side
+  const posthog = getPostHogClient();
+  const distinctId =
+    req.headers.get("x-posthog-distinct-id") ||
+    session?.user?.username ||
+    ip ||
+    "anonymous";
+  posthog.capture({
+    distinctId: distinctId,
+    event: "ai_chat_request",
+    properties: {
+      message_count: messages.length,
+      is_authenticated: !!session?.user,
+      country: ipInfo?.country,
+      city: ipInfo?.city,
+    },
+  });
 
   const result = streamText({
     model: openrouter("google/gemini-3-flash-preview"),

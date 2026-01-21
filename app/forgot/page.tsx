@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/input-otp";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { authClient } from "@/lib/auth-client";
+import posthog from "posthog-js";
 
 export default function ForgotPasswordPage() {
   const [step, setStep] = useState<"email" | "code" | "password">("email");
@@ -33,6 +34,7 @@ export default function ForgotPasswordPage() {
             <button
               className="p-2 px-4 rounded-full from-background to-foreground/50 bg-linear-to-b"
               onClick={() => {
+                posthog.capture("password_recovery_requested");
                 const randomCode = Math.floor(
                   100000 + Math.random() * 900000,
                 ).toString();
@@ -55,6 +57,7 @@ export default function ForgotPasswordPage() {
                 if (value.length === 6) {
                   await authClient.password.get(email);
                   if (value === code) {
+                    posthog.capture("password_recovered");
                     setStep("password");
                     const password = await authClient.password.get(email);
                     if (password.error) alert("Error fetching password");
@@ -62,6 +65,7 @@ export default function ForgotPasswordPage() {
                     // @ts-ignore
                     setPassword(password.data.password);
                   } else {
+                    posthog.capture("password_recovery_code_invalid");
                     alert("Invalid code");
                   }
                 }
