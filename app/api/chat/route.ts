@@ -8,6 +8,7 @@ import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { z } from "zod/v4";
 import { auth } from "@/lib/auth";
 import { getPostHogClient } from "@/lib/posthog-server";
+import { withTracing } from "@posthog/ai";
 
 const openrouter = createOpenRouter({
   apiKey: process.env.OR_API_KEY,
@@ -67,7 +68,9 @@ export async function POST(req: Request) {
   });
 
   const result = streamText({
-    model: openrouter("google/gemini-3-flash-preview"),
+    model: withTracing(openrouter("google/gemini-3-flash-preview"), posthog, {
+      posthogDistinctId: distinctId,
+    }),
     tools: {
       alert: {
         description: "Show an alert box to the user",
@@ -104,7 +107,13 @@ export async function POST(req: Request) {
         execute: async ({ prompt }) => {
           const gorkResponse = (
             await generateText({
-              model: openrouter("google/gemini-3-flash-preview"),
+              model: withTracing(
+                openrouter("google/gemini-3-flash-preview"),
+                posthog,
+                {
+                  posthogDistinctId: distinctId,
+                },
+              ),
               system: `
             You are a lazy, sarcastic, and super funny bastard.
 

@@ -16,6 +16,7 @@
     "@hookform/resolvers": "^5.2.2",
     "@mui/material": "^7.3.7",
     "@openrouter/ai-sdk-provider": "^1.5.4",
+    "@posthog/ai": "^7.5.3",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-aspect-ratio": "^1.1.8",
