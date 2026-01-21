@@ -1,7 +1,10 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useChat } from "@ai-sdk/react";
-import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
+import {
+  DefaultChatTransport,
+  lastAssistantMessageIsCompleteWithToolCalls,
+} from "ai";
 import { AnimatePresence, motion } from "motion/react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
@@ -38,6 +41,11 @@ function AIChat() {
         });
       }
     },
+    transport: new DefaultChatTransport({
+      headers: {
+        "x-posthog-distinct-id": posthog.get_distinct_id(),
+      },
+    }),
   });
   const [enteredText, setEnteredText] = useState("Enter message here...");
   const queryParams = useSearchParams();
